@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Charcoal-view by locomotivemtl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Charcoal-view</h1>
+      <h2 class="project-tagline">Charcoal Views (mustache, php, or more)</h2>
+      <a href="https://github.com/locomotivemtl/charcoal-view" class="btn">View on GitHub</a>
+      <a href="https://github.com/locomotivemtl/charcoal-view/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/locomotivemtl/charcoal-view/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="charcoal-view" class="anchor" href="#charcoal-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Charcoal View</h1>
+
+<p>The <code>Charcoal\View</code> module provides everything needed to render templates and add renderer to objects.</p>
+
+<p>It is a thin layer on top of various <em>rendering engines</em>, such as <strong>mustache</strong> or <strong>twig</strong>.</p>
+
+<p>It is the default view layer for <code>charcoal-app</code> projects.</p>
+
+<p><a href="https://travis-ci.org/locomotivemtl/charcoal-view"><img src="https://travis-ci.org/locomotivemtl/charcoal-view.svg?branch=master" alt="Build Status"></a>
+<a href="https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29"><img src="https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29/mini.png" alt="SensioLabsInsight"></a></p>
+
+<h1>
+<a id="table-of-content" class="anchor" href="#table-of-content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of content</h1>
+
+<ul>
+<li>
+<a href="#how-to-install">How to install</a>
+
+<ul>
+<li><a href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a></li>
+<li>
+<a href="#module-components">Module components</a>
+
+<ul>
+<li>Views
+
+<ul>
+<li>Generic View</li>
+</ul>
+</li>
+<li>View Engines</li>
+<li>Loaders
+
+<ul>
+<li>Templates</li>
+</ul>
+</li>
+<li>Viewable Interface and Trait</li>
+</ul>
+</li>
+<li>
+<a href="#development">Development</a>
+
+<ul>
+<li><a href="#development-dependencies">Development dependencies</a></li>
+<li><a href="#coding-style">Coding Style</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#changelog">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+<h1>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install</h1>
+
+<p>The preferred (and only supported) way of installing charcoal-view is with <strong>composer</strong>:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer require locomotivemtl/charcoal-view</pre></div>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>
+<code>PHP 5.5+</code>
+
+<ul>
+<li>Older versions of PHP are deprecated, therefore not supported.</li>
+</ul>
+</li>
+<li>
+<a href="http://www.php-fig.org/psr/psr-3/"><code>psr/log</code></a>
+
+<ul>
+<li>A PSR-3 compliant logger should be provided to the various services / classes.</li>
+</ul>
+</li>
+<li>
+<a href="http://www.php-fig.org/psr/psr-7/"><code>psr/http-message</code></a>
+
+<ul>
+<li>Charcoal View provides a PSR7 renderer.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/locomotivemtl/charcoal-config"><code>locomotivemtl/charcoal-config</code></a>
+
+<ul>
+<li>The view objects are <em>configurable</em> with <code>\Charcoal\View\ViewConfig</code>.</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="optional-dependencies" class="anchor" href="#optional-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Optional dependencies</h3>
+
+<ul>
+<li>
+<a href="https://github.com/bobthecow/mustache.php"><code>mustache/mustache</code></a>
+
+<ul>
+<li>The default rendering engine is <em>mustache</em>, so it should be included in most cases.</li>
+<li>All default charcoal modules use mustache templates.</li>
+</ul>
+</li>
+<li>
+<a href="http://twig.sensiolabs.org/"><code>twig/twig</code></a>
+
+<ul>
+<li>Twig can also be used as a rendering engine for the view.</li>
+</ul>
+</li>
+</ul>
+
+<blockquote>
+<p><g-emoji alias="point_right" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png">👉</g-emoji> Development dependencies are described in the <em>Development</em> section of this README file.</p>
+</blockquote>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$engine</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Charcoal\View\Mustache\</span><span class="pl-c1">MustacheEngine</span>([</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>logger<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$logger</span>, <span class="pl-c">// PSR-3 logger</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>loader<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c">// ...</span></span>
+<span class="pl-s1">]);</span>
+<span class="pl-s1"><span class="pl-smi">$view</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Charcoal\View\</span><span class="pl-c1">GenericView</span>();</span>
+<span class="pl-s1"><span class="pl-smi">$view</span><span class="pl-k">-&gt;</span>setEngine(<span class="pl-smi">$engine</span>)</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$context</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Foo\Bar\</span><span class="pl-c1">ContextData</span>();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$view</span><span class="pl-k">-&gt;</span>render(<span class="pl-s"><span class="pl-pds">'</span>foo/bar/template<span class="pl-pds">'</span></span>, <span class="pl-smi">$context</span>);</span></pre></div>
+
+<blockquote>
+<p><g-emoji alias="point_right" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png">👉</g-emoji> The default view engine, used in those examples, would be <em>mustache</em>.</p>
+</blockquote>
+
+<p>Using renderer, with a PSR7 framework (in this example, Slim 3):</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\Charcoal\View\GenericView</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\Charcoal\View\Renderer</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">'</span>vendor/autoload.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$app</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Slim\</span><span class="pl-c1">App</span>();</span>
+<span class="pl-s1"><span class="pl-smi">$container</span> <span class="pl-k">=</span> <span class="pl-smi">$app</span><span class="pl-k">-&gt;</span>getContainer();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$container</span>[<span class="pl-s"><span class="pl-pds">'</span>view_config<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">$c</span>) {</span>
+<span class="pl-s1">    <span class="pl-smi">$config</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Charcoal\View\</span><span class="pl-c1">ViewConfig</span>();</span>
+<span class="pl-s1">    <span class="pl-k">return</span> <span class="pl-smi">$config</span>;</span>
+<span class="pl-s1">};</span>
+<span class="pl-s1"><span class="pl-smi">$container</span>[<span class="pl-s"><span class="pl-pds">'</span>view<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">$c</span>) {</span>
+<span class="pl-s1">    <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-c1">GenericView</span>([</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>config<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$c</span>[<span class="pl-s"><span class="pl-pds">'</span>view_config<span class="pl-pds">'</span></span>],</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>logger<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$c</span>[<span class="pl-s"><span class="pl-pds">'</span>logger<span class="pl-pds">'</span></span>]</span>
+<span class="pl-s1">    ]);</span>
+<span class="pl-s1">};</span>
+<span class="pl-s1"><span class="pl-smi">$container</span>[<span class="pl-s"><span class="pl-pds">'</span>renderer<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">$c</span>) {</span>
+<span class="pl-s1">    <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-c1">Renderer</span>(<span class="pl-smi">$c</span>[<span class="pl-s"><span class="pl-pds">'</span>view<span class="pl-pds">'</span></span>]);</span>
+<span class="pl-s1">};</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$app</span><span class="pl-k">-&gt;</span>get(<span class="pl-s"><span class="pl-pds">'</span>/hello/{name}<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">$request</span>, <span class="pl-smi">$response</span>, <span class="pl-smi">$args</span>) {</span>
+<span class="pl-s1">    <span class="pl-k">return</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">renderer</span><span class="pl-k">-&gt;</span>render(<span class="pl-smi">$response</span>, <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, <span class="pl-smi">$args</span>);</span>
+<span class="pl-s1">});</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$app</span><span class="pl-k">-&gt;</span>run();</span></pre></div>
+
+<h1>
+<a id="module-components" class="anchor" href="#module-components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module components</h1>
+
+<p>The basic components in <code>charcoal-view</code> are:</p>
+
+<ul>
+<li>
+<a href="#views"><strong>View</strong></a>, which provide the basic interface to all components.</li>
+<li>
+<a href="#view-engines"><strong>Engine</strong></a>, to actually render the templates.</li>
+<li>
+<a href="#loader"><strong>Loader</strong></a>, to load <em>template files</em>.</li>
+<li>
+<a href="#viewable-interface-and-trait"><strong>Viewable</strong></a>, which allow any object to be rendered with a <em>View</em>.</li>
+<li>
+<strong>Renderer</strong>, an extra helper to use a view to render into PSR-7 request/response objects.</li>
+</ul>
+
+<h2>
+<a id="views" class="anchor" href="#views" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Views</h2>
+
+<p>The <code>Charcoal\View\ViewInterface</code> defines all that is needed to render templates via a view engine:</p>
+
+<ul>
+<li><code>render($templateIdent = null, $context = null)</code></li>
+<li><code>renderTemplate($templateString, $context = null)</code></li>
+</ul>
+
+<p>The abstract class <code>Charcoal\View\AbstractView</code> fully implements the <code>ViewInterface</code> and adds the methods:</p>
+
+<h3>
+<a id="generic-view" class="anchor" href="#generic-view" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Generic view</h3>
+
+<p>As convenience, the <code>\Charcoal\View\GenericView</code> class implements the full interface by extending the <code>AbstractView</code> base class.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\Charcoal\View\GenericView</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// Using with a loader / template ident</span></span>
+<span class="pl-s1"><span class="pl-smi">$view</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">GenericView</span>([</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>engine_type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>mustache<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">]);</span>
+<span class="pl-s1"><span class="pl-smi">$context</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Foo\Bar\</span><span class="pl-c1">ModelController</span>();</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$view</span><span class="pl-k">-&gt;</span>render(<span class="pl-s"><span class="pl-pds">'</span>example/foo/bar<span class="pl-pds">'</span></span>, <span class="pl-smi">$context</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// Using with a template string, directly</span></span>
+<span class="pl-s1"><span class="pl-smi">$view</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">GenericView</span>([</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>engine_type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>mustache<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">]);</span>
+<span class="pl-s1"><span class="pl-smi">$template</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;p&gt;Hello {{world}}&lt;/p&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$context</span>  <span class="pl-k">=</span> [</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>World!<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">];</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$view</span><span class="pl-k">-&gt;</span>render(<span class="pl-smi">$template</span>, <span class="pl-smi">$context</span>);</span></pre></div>
+
+<h2>
+<a id="view-engines" class="anchor" href="#view-engines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>View Engines</h2>
+
+<p>Charcoal <em>views</em> support different templating Engines_, which are responsible for loading the appropriate template (through a <em>loader</em>) and render a template with a given context according to its internal rules. Every view engines should implement <code>\Charcoal\View\EngineInterface</code>.</p>
+
+<p>There are 4 engines available by default:</p>
+
+<ul>
+<li>
+<code>mustache</code> (<strong>default</strong>)</li>
+<li><code>php</code></li>
+<li>
+<code>php-mustache</code>, the mustache templating engine with a PHP template loader. (Files are parsed with PHP before being used as a mustache templates).</li>
+<li><code>twig</code></li>
+</ul>
+
+<h2>
+<a id="loaders" class="anchor" href="#loaders" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Loaders</h2>
+
+<h3>
+<a id="templates" class="anchor" href="#templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Templates</h3>
+
+<p>Templates are simply files, stored on the filesystem, containing the main view (typically, HTML code + templating tags, but can be kind of text data).</p>
+
+<ul>
+<li>For the <em>mustache</em> engine, they are <code>.mustache</code> files.</li>
+<li>For the <em>php</em> and <em>php-mustache</em> engines, they are <code>.php</code> files.</li>
+</ul>
+
+<p>Templates are loaded with template <em>loaders</em>. Loaders implement the <code>Charcoal\View\LoaderInterface</code> and simply tries to match an identifier (passed as argument to the <code>load()</code> method) to a file on the filesystem.</p>
+
+<p>Calling <code>$view-&gt;render($templateIdent, $ctx)</code> will automatically use the engine's <code>Loader</code> object to find the template <code>$templateIdent</code>.</p>
+
+<p>Otherwise, calling <code>$view-&gt;renderTemplate($templateString, $ctx)</code> expects an already-loaded template string as parameter.</p>
+
+<h2>
+<a id="viewable-interface-and-trait" class="anchor" href="#viewable-interface-and-trait" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Viewable Interface and Trait</h2>
+
+<p>Any objects can be made renderable (viewable) by implementing the <code>Charcoal\View\ViewableInterface</code> by using the <code>Charcoal\View\ViewableTrait</code>.</p>
+
+<p>The interface adds the following methods:</p>
+
+<ul>
+<li><code>setTemplateIdent($ident)</code></li>
+<li><code>templateIdent()</code></li>
+<li><code>setView($view)</code></li>
+<li><code>view()</code></li>
+<li><code>render($templateIdent = null)</code></li>
+<li><code>renderTemplate($templateString)</code></li>
+</ul>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h3>
+
+<p>Given the following classes:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\Charcoal\View\ViewableInterface</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\Charcoal\View\ViewableTrait</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">MyObject</span> <span class="pl-k">implements</span> <span class="pl-e">ViewableInterface</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">use</span> <span class="pl-c1">ViewableTrait</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">world</span>()</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>world!<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span></pre></div>
+
+<p>The following code:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$obj</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">MyObject</span>();</span>
+<span class="pl-s1"><span class="pl-smi">$obj</span><span class="pl-k">-&gt;</span>renderTemplate(<span class="pl-s"><span class="pl-pds">'</span>Hello {{world}}<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>would output: <code>"Hello world!"</code></p>
+
+<h1>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h1>
+
+<p>To install the development environment:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer install --prefer-source</pre></div>
+
+<p>Run tests with</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer <span class="pl-c1">test</span></pre></div>
+
+<h2>
+<a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API documentation</h2>
+
+<ul>
+<li>The auto-generated <code>phpDocumentor</code> API documentation is available at <a href="https://locomotivemtl.github.io/charcoal-view/docs/master/">https://locomotivemtl.github.io/charcoal-view/docs/master/</a>
+</li>
+<li>The auto-generated <code>apigen</code> API documentation is available at <a href="https://codedoc.pub/locomotivemtl/charcoal-view/master/index.html">https://codedoc.pub/locomotivemtl/charcoal-view/master/</a>
+</li>
+</ul>
+
+<h2>
+<a id="development-dependencies" class="anchor" href="#development-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development dependencies</h2>
+
+<ul>
+<li><code>phpunit/phpunit</code></li>
+<li><code>squizlabs/php_codesniffer</code></li>
+<li><code>satooshi/php-coveralls</code></li>
+</ul>
+
+<h2>
+<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Continuous Integration</h2>
+
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Badge</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-view">Travis</a></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-view"><img src="https://travis-ci.org/locomotivemtl/charcoal-view.svg?branch=master" alt="Build Status"></a></td>
+<td>Runs code sniff check and unit tests. Auto-generates API documentation.</td>
+</tr>
+<tr>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/">Scrutinizer</a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-view/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td>Code quality checker. Also validates API documentation quality.</td>
+</tr>
+<tr>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-view">Coveralls</a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-view?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-view/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td>Unit Tests code coverage.</td>
+</tr>
+<tr>
+<td><a href="https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29">Sensiolabs</a></td>
+<td><a href="https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29"><img src="https://insight.sensiolabs.com/projects/396d2f06-82ba-4c79-b8cc-762f1e8bda29/mini.png" alt="SensioLabsInsight"></a></td>
+<td>Another code quality checker, focused on PHP.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="coding-style" class="anchor" href="#coding-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Coding Style</h2>
+
+<p>The Charcoal-View module follows the Charcoal coding-style:</p>
+
+<ul>
+<li><a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md"><em>PSR-1</em></a></li>
+<li><a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md"><em>PSR-2</em></a></li>
+<li>
+<a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md"><em>PSR-4</em></a>, autoloading is therefore provided by <em>Composer</em>.</li>
+<li>
+<a href="http://phpdoc.org/"><em>phpDocumentor</em></a> comments.</li>
+<li>Read the <a href="phpcs.xml">phpcs.xml</a> file for all the details on code style.</li>
+</ul>
+
+<blockquote>
+<p>Coding style validation / enforcement can be performed with <code>composer phpcs</code>. An auto-fixer is also available with <code>composer phpcbf</code>.</p>
+
+<h2>
+<a id="authors" class="anchor" href="#authors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors</h2>
+</blockquote>
+
+<ul>
+<li>Mathieu Ducharme <a href="mailto:mat@locomotive.ca">mat@locomotive.ca</a>
+</li>
+</ul>
+
+<h2>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h2>
+
+<h3>
+<a id="011" class="anchor" href="#011" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.1.1</h3>
+
+<p><em>Released on 2016-02-22</em></p>
+
+<ul>
+<li>Add jsRequirements and cssRequirements to default mustache helper.</li>
+</ul>
+
+<h3>
+<a id="01" class="anchor" href="#01" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.1</h3>
+
+<p><em>Released on 2016-02-04</em></p>
+
+<ul>
+<li>Initial release of <code>charcoal-view</code>.</li>
+</ul>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+
+<p><strong>The MIT License (MIT)</strong></p>
+
+<p><em>Copyright © 2016 Locomotive inc.</em></p>
+
+<blockquote>
+<p>See <a href="#authors">Authors</a>.</p>
+</blockquote>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/locomotivemtl/charcoal-view">Charcoal-view</a> is maintained by <a href="https://github.com/locomotivemtl">locomotivemtl</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
