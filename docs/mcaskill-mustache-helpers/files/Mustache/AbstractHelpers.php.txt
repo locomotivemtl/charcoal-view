@@ -1,0 +1,39 @@
+<?php
+
+namespace Charcoal\View\Mustache;
+
+use \ArrayIterator;
+
+/**
+ * Full implementation, as Abstract class, of the {@see HelpersInterface}.
+ *
+ * > An array of 'helpers'. Helpers can be global variables or objects, closures
+ * > (e.g. for higher order sections), or any other valid Mustache context value.
+ * > They will be prepended to the context stack, so they will be available in
+ * > any template loaded by this Mustache instance.
+ * — {@link https://github.com/bobthecow/mustache.php/wiki#helpers}
+ */
+abstract class AbstractHelpers implements HelpersInterface
+{
+    /**
+     * Retrieve a traversable iterator.
+     *
+     * @see    IteratorAggregate::getIterator()
+     * @return Traversable
+     */
+    public function getIterator()
+    {
+        return new ArrayIterator($this->toArray());
+    }
+
+    /**
+     * Retrieve the collection of helpers.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return [];
+    }
+}
+

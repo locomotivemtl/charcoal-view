@@ -1,0 +1,172 @@
+<?php
+
+namespace Charcoal\View\Mustache;
+
+use \Exception;
+
+// Dependency from 'mustache/mustache'
+use \Mustache_Engine;
+
+// Intra-module (`charcoal-view`) depentency
+use \Charcoal\View\AbstractEngine;
+
+/**
+ * Mustache view rendering engine.
+ */
+class MustacheEngine extends AbstractEngine
+{
+    /**
+     * A collection of helpers.
+     *
+     * @var HelpersCollection|HelpersInterface[] $helpers
+     */
+    private $helpers;
+
+    /**
+     * The renderering framework.
+     *
+     * @var Mustache_Engine
+     */
+    private $mustache;
+
+    /**
+     * Build the object with an array of dependencies.
+     *
+     * ## Required parameters:
+     * - `logger` a PSR-3 logger
+     *
+     * ## Optional parameters:
+     * - `loader` a Loader object
+     *
+     * @param array $data Engine dependencie.
+     */
+    public function __construct(array $data)
+    {
+        $this->setLogger($data['logger']);
+
+        if (isset($data['loader'])) {
+            $this->setLoader($data['loader']);
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function type()
+    {
+        return 'mustache';
+    }
+
+    /**
+     * @return Mustache_Engine
+     */
+    protected function mustache()
+    {
+        if ($this->mustache === null) {
+            $this->mustache = $this->createMustache();
+        }
+
+        return $this->mustache;
+    }
+
+    /**
+     * @return Mustache_Engine
+     */
+    protected function createMustache()
+    {
+        $mustache = new Mustache_Engine([
+            'cache'             => 'mustache_cache',
+            'loader'            => $this->loader(),
+            'partials_loader'   => $this->loader(),
+            'strict_callables'  => true,
+            'helpers'           => $this->helpers()
+        ]);
+
+        return $mustache;
+    }
+
+    /**
+     * @param mixed $helper The helpers to use.
+     * @return MustacheEngine Chainable
+     */
+    public function setHelpers($helpers)
+    {
+        $this->helpers = $this->arraybleHelpers($helpers);
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $helper The helpers to append.
+     * @return MustacheEngine Chainable
+     */
+    public function addHelpers($helpers)
+    {
+        $helpers = $this->arraybleHelpers($helpers);
+
+        $this->helpers = array_merge($this->helpers, $helpers);
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function helpers()
+    {
+        if ($this->helpers === null) {
+            $this->helpers = $this->createHelpers();
+        }
+
+        return $this->helpers;
+    }
+
+    /**
+     * @return array
+     */
+    protected function createHelpers()
+    {
+        $generic = new GenericHelpers();
+        $assets  = new AssetsHelpers();
+
+        return array_merge($generic->toArray(), $assets->toArray());
+    }
+
+    /**
+     * @param mixed $helpers An arryable variable to parse.
+     * @return array
+     */
+    private function arraybleHelpers($helpers)
+    {
+        if (is_array($helpers)) {
+            return $helpers;
+        } elseif ($helpers instanceof HelpersInterface) {
+            return $helpers->toArray();
+        } elseif ($helpers instanceof Traversable) {
+            return iterator_to_array($items);
+        } else {
+            throw new Exception('Unable to convert helpers. Must be an array or a traversable object.');
+        }
+    }
+
+    /**
+     * @param string $templateIdent The template identifier to load and render.
+     * @param mixed  $context       The rendering context.
+     * @return string The rendered template string.
+     */
+    public function render($templateIdent, $context)
+    {
+        return $this->mustache()->render($templateIdent, $context);
+    }
+
+    /**
+     * @param string $templateString The template string to render.
+     * @param mixed  $context        The rendering context.
+     * @return string The rendered template string.
+     */
+    public function renderTemplate($templateString, $context)
+    {
+        return $this->mustache()->render($templateString, $context);
+    }
+}
+

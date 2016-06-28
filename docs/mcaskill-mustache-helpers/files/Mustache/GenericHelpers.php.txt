@@ -1,0 +1,26 @@
+<?php
+
+namespace Charcoal\View\Mustache;
+
+use \Mustache_LambdaHelper as LambdaHelper;
+
+/**
+ * Base Mustache helpers for rendering.
+ */
+class GenericHelpers extends AbstractHelpers
+{
+    /**
+     * Retrieve the collection of helpers.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            '_t' => function($text, LambdaHelper $helper) {
+                return $helper->render($text);
+            }
+        ];
+    }
+}
+

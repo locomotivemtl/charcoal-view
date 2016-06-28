@@ -1,0 +1,19 @@
+<?php
+
+namespace Charcoal\View\Mustache;
+
+use \IteratorAggregate;
+
+/**
+ * Defines a collection of helpers
+ */
+interface HelpersInterface extends IteratorAggregate
+{
+    /**
+     * Get the collection of helpers as a plain array.
+     *
+     * @return array
+     */
+    public function toArray();
+}
+
