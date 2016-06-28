@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\View\Mustache\MustacheEngine</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.View.html">
+						View<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.View.Engine.html">
+						Engine					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Charcoal.View.Mustache.html">
+						Mustache					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Php.html">
+						Php					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Twig.html">
+						Twig					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.Mustache.AbstractHelpers.html">AbstractHelpers</a></li>
+				<li><a href="class-Charcoal.View.Mustache.AssetsHelpers.html">AssetsHelpers</a></li>
+				<li><a href="class-Charcoal.View.Mustache.GenericHelpers.html">GenericHelpers</a></li>
+				<li class="active"><a href="class-Charcoal.View.Mustache.MustacheEngine.html">MustacheEngine</a></li>
+				<li><a href="class-Charcoal.View.Mustache.MustacheLoader.html">MustacheLoader</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.Mustache.HelpersInterface.html">HelpersInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.View.Mustache.html" title="Summary of Charcoal\View\Mustache"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class MustacheEngine</h1>
+
+
+	<div class="description">
+	<p>Mustache view rendering engine.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Charcoal.View.AbstractEngine.html"><span>Charcoal\View\AbstractEngine</span></a>
+			
+			 implements 
+				<a href="class-Charcoal.View.EngineInterface.html"><span>Charcoal\View\EngineInterface</span></a>, 
+			
+<span>Psr\Log\LoggerAwareInterface</span>
+			
+			 uses 
+					Psr\Log\LoggerAwareTrait (not available)
+
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Charcoal\View\Mustache\MustacheEngine</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Charcoal.View.Engine.PhpMustacheEngine.html">Charcoal\View\Engine\PhpMustacheEngine</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a>\<a href="namespace-Charcoal.View.Mustache.html">Mustache</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#13-171" title="Go to source code">Charcoal/View/Mustache/MustacheEngine.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#32-50" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			<p>Build the object with an array of dependencies.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Build the object with an array of dependencies.</p>
+
+<h2>Required parameters:</h2>
+
+<ul>
+<li><code>logger</code> a PSR-3 logger</li>
+</ul>
+
+<h2>Optional parameters:</h2>
+
+<ul>
+<li><code>loader</code> a Loader object</li>
+</ul>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd>Engine dependencie.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="type" id="_type">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_type">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#52-58" title="Go to source code">type</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="mustache" id="_mustache">
+
+		<td class="attributes"><code>
+			 protected 
+
+			Mustache_Engine
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_mustache">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#60-70" title="Go to source code">mustache</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					Mustache_Engine
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createMustache" id="_createMustache">
+
+		<td class="attributes"><code>
+			 protected 
+
+			Mustache_Engine
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createMustache">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#72-86" title="Go to source code">createMustache</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					Mustache_Engine
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setHelpers" id="_setHelpers">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.View.Mustache.MustacheEngine.html">Charcoal\View\Mustache\MustacheEngine</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setHelpers">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#88-97" title="Go to source code">setHelpers</a>( <span>mixed <var>$helpers</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$helpers</var></dt>
+					<dd>$helper The helpers to use.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.Mustache.MustacheEngine.html">Charcoal\View\Mustache\MustacheEngine</a></code><br>Chainable
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addHelpers" id="_addHelpers">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.View.Mustache.MustacheEngine.html">Charcoal\View\Mustache\MustacheEngine</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addHelpers">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#99-110" title="Go to source code">addHelpers</a>( <span>mixed <var>$helpers</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$helpers</var></dt>
+					<dd>$helper The helpers to append.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.Mustache.MustacheEngine.html">Charcoal\View\Mustache\MustacheEngine</a></code><br>Chainable
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="helpers" id="_helpers">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_helpers">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#112-122" title="Go to source code">helpers</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createHelpers" id="_createHelpers">
+
+		<td class="attributes"><code>
+			 protected 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createHelpers">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#124-133" title="Go to source code">createHelpers</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="render" id="_render">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_render">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#152-160" title="Go to source code">render</a>( <span>string <var>$templateIdent</var></span>, <span>mixed <var>$context</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateIdent</var></dt>
+					<dd>The template identifier to load and render.</dd>
+					<dt><var>$context</var></dt>
+					<dd>The rendering context.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The rendered template string.
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.View.AbstractEngine.html#_render">Charcoal\View\AbstractEngine::render()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="renderTemplate" id="_renderTemplate">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_renderTemplate">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#162-170" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var></span>, <span>mixed <var>$context</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateString</var></dt>
+					<dd>The template string to render.</dd>
+					<dt><var>$context</var></dt>
+					<dd>The rendering context.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The rendered template string.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.View.AbstractEngine.html#methods">Charcoal\View\AbstractEngine</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.View.AbstractEngine.html#_loadTemplate">loadTemplate()</a>, 
+			<a href="class-Charcoal.View.AbstractEngine.html#_loader">loader()</a>, 
+			<a href="class-Charcoal.View.AbstractEngine.html#_setLoader">setLoader()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
