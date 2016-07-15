@@ -3,12 +3,17 @@
 namespace Charcoal\View\Mustache;
 
 use \Exception;
+use \InvalidArgumentException;
 
 // Dependency from 'mustache/mustache'
 use \Mustache_Engine;
 
-// Intra-module (`charcoal-view`) depentency
+// Intra-module (`charcoal-view`) depentencies
 use \Charcoal\View\AbstractEngine;
+
+use \Charcoal\View\Mustache\Helpers\GenericHelpers;
+use \Charcoal\View\Mustache\Helpers\AssetsHelpers;
+use \Charcoal\View\Mustache\Helpers\HelpersInterface;
 
 /**
  * Mustache view rendering engine.
@@ -86,7 +91,9 @@ class MustacheEngine extends AbstractEngine
     }
 
     /**
-     * @param mixed $helper The helpers to use.
+     * Set the helpers.
+     *
+     * @param mixed $helpers The helpers to use.
      * @return MustacheEngine Chainable
      */
     public function setHelpers($helpers)
@@ -97,7 +104,11 @@ class MustacheEngine extends AbstractEngine
     }
 
     /**
-     * @param mixed $helper The helpers to append.
+     * Add additional helpers.
+     *
+     * Existing helpers are overwritten.
+     *
+     * @param mixed $helpers The helpers to append.
      * @return MustacheEngine Chainable
      */
     public function addHelpers($helpers)
@@ -133,7 +144,10 @@ class MustacheEngine extends AbstractEngine
     }
 
     /**
-     * @param mixed $helpers An arryable variable to parse.
+     * Parse array of helpers from HelpersInterface or Arrayable.
+     *
+     * @param mixed $helpers An arrayable variable to parse.
+     * @throws InvalidArgumentException If the helpers are not arrayable.
      * @return array
      */
     private function arraybleHelpers($helpers)
@@ -145,7 +159,7 @@ class MustacheEngine extends AbstractEngine
         } elseif ($helpers instanceof Traversable) {
             return iterator_to_array($items);
         } else {
-            throw new Exception('Unable to convert helpers. Must be an array or a traversable object.');
+            throw new InvalidArgumentException('Unable to convert helpers. Must be an array or a traversable object.');
         }
     }
 
