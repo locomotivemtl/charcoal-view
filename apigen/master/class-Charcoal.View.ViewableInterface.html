@@ -119,7 +119,7 @@
 
 
 	<div class="description">
-	<p>Viewable objects have a view, and therefore can be rendered.</p>
+	<p>Defines an object as viewable, and therefore can be rendered.</p>
 	</div>
 
 
@@ -136,7 +136,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.View.ViewableInterface.html#5-62" title="Go to source code">Charcoal/View/ViewableInterface.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.View.ViewableInterface.html#5-82" title="Go to source code">Charcoal/View/ViewableInterface.php</a>
 		<br>
 	</div>
 
@@ -156,14 +156,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#11-14" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#10-15" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Render the viewable object.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Render the viewable object.</p>
 
 
 
@@ -190,20 +190,20 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTemplateEngine">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#16-22" title="Go to source code">setTemplateEngine</a>( <span>string <var>$engineIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#17-23" title="Go to source code">setTemplateEngine</a>( <span>string <var>$engineIdent</var></span> )</code>
 
 		<div class="description short">
-			<p>Set the type of view engine to use for this view.</p>
+			<p>Set the view engine type (identifier).</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Set the type of view engine to use for this view.</p>
+			<p>Set the view engine type (identifier).</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$engineIdent</var></dt>
-					<dd>The rendering engine (identifier).</dd>
+					<dd>The rendering engine identifier.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -229,20 +229,20 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_templateEngine">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#24-27" title="Go to source code">templateEngine</a>( )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#25-30" title="Go to source code">templateEngine</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Retrieve the view engine type (identifier).</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Retrieve the view engine type (identifier).</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					string<br>The template engine (<code>mustache</code>, <code>php</code>, <code>php-mustache</code> or <code>twig</code>)
+					string<br>Returns either "mustache", "php", "php-mustache" or "twig".
 				</div>
 
 
@@ -263,20 +263,22 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTemplateIdent">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#29-33" title="Go to source code">setTemplateIdent</a>( <span>string <var>$ident</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#32-40" title="Go to source code">setTemplateIdent</a>( <span>string <var>$ident</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Set the viewable object's template identifier.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Set the viewable object's template identifier.</p>
+
+<p>Usually, a path to a file containing the template to be rendered at runtime.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$ident</var></dt>
-					<dd>The template ident for this viewable object.</dd>
+					<dd>The template ID.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -302,14 +304,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_templateIdent">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#35-38" title="Go to source code">templateIdent</a>( )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#42-47" title="Go to source code">templateIdent</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Retrieve the viewable object's template identifier.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Retrieve the viewable object's template identifier.</p>
 
 
 
@@ -336,14 +338,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setView">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#40-44" title="Go to source code">setView</a>( <span><code><a href="class-Charcoal.View.ViewInterface.html">Charcoal\View\ViewInterface</a></code> <var>$view</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#49-55" title="Go to source code">setView</a>( <span><code><a href="class-Charcoal.View.ViewInterface.html">Charcoal\View\ViewInterface</a></code> <var>$view</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Set the renderable view.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Set the renderable view.</p>
 
 
 				<h4>Parameters</h4>
@@ -375,14 +377,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_view">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#46-49" title="Go to source code">view</a>( )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#57-62" title="Go to source code">view</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Retrieve the renderable view.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Retrieve the renderable view.</p>
 
 
 
@@ -409,20 +411,23 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_render">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#51-55" title="Go to source code">render</a>( <span>string <var>$template</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#64-73" title="Go to source code">render</a>( <span>string <var>$templateIdent</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>Render the template by the given identifier.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Render the template by the given identifier.</p>
+
+<p>Usually, a path to a file containing the template to be rendered at runtime.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$template</var></dt>
-					<dd>The template to parse and render. If null, use the object's default.</dd>
+					<dt><var>$templateIdent</var></dt>
+					<dd><p>The template to load, parse, and render.
+    If NULL, will use the object's previously set template identifier.</p></dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -448,20 +453,20 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_renderTemplate">#</a>
-		<code><a href="source-class-Charcoal.View.ViewableInterface.html#57-61" title="Go to source code">renderTemplate</a>( <span>string <var>$templateIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.ViewableInterface.html#75-81" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Render the given template from string.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Render the given template from string.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$templateIdent</var></dt>
-					<dd>The template ident to load and render.</dd>
+					<dt><var>$templateString</var></dt>
+					<dd>The template  to render from string.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
