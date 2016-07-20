@@ -37,16 +37,9 @@
 						</li>
 				<li class="active">
 					<a href="namespace-Charcoal.View.Mustache.html">
-						Mustache<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-Charcoal.View.Mustache.Helpers.html">
-						Helpers					</a>
+						Mustache					</a>
 
 						</li>
-							</ul></li>
 				<li>
 					<a href="namespace-Charcoal.View.Php.html">
 						Php					</a>
@@ -67,6 +60,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Charcoal.View.Mustache.GenericHelper.html">GenericHelper</a></li>
 				<li class="active"><a href="class-Charcoal.View.Mustache.MustacheEngine.html">MustacheEngine</a></li>
 				<li><a href="class-Charcoal.View.Mustache.MustacheLoader.html">MustacheLoader</a></li>
 			</ul>
@@ -153,7 +147,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a>\<a href="namespace-Charcoal.View.Mustache.html">Mustache</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#18-185" title="Go to source code">Charcoal/View/Mustache/MustacheEngine.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#11-132" title="Go to source code">Charcoal/View/Mustache/MustacheEngine.php</a>
 		<br>
 	</div>
 
@@ -173,7 +167,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#37-55" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#26-44" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
 
 		<div class="description short">
 			<p>Build the object with an array of dependencies.</p>
@@ -220,7 +214,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_type">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#57-63" title="Go to source code">type</a>( )</code>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#46-52" title="Go to source code">type</a>( )</code>
 
 		<div class="description short">
 			
@@ -254,7 +248,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_mustache">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#65-75" title="Go to source code">mustache</a>( )</code>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#54-63" title="Go to source code">mustache</a>( )</code>
 
 		<div class="description short">
 			
@@ -288,7 +282,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createMustache">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#77-91" title="Go to source code">createMustache</a>( )</code>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#65-81" title="Go to source code">createMustache</a>( )</code>
 
 		<div class="description short">
 			
@@ -310,7 +304,7 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="setHelpers" id="_setHelpers">
+	<tr data-order="setHelper" id="_setHelper">
 
 		<td class="attributes"><code>
 			 public 
@@ -321,21 +315,21 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_setHelpers">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#93-104" title="Go to source code">setHelpers</a>( <span>mixed <var>$helpers</var></span> )</code>
+		<a class="anchor" href="#_setHelper">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#83-91" title="Go to source code">setHelper</a>( <span>mixed <var>$helper</var></span> )</code>
 
 		<div class="description short">
-			<p>Set the helpers.</p>
+			
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Set the helpers.</p>
+			
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$helpers</var></dt>
-					<dd>The helpers to use.</dd>
+					<dt><var>$helper</var></dt>
+					<dd>The helper.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -349,60 +343,19 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="addHelpers" id="_addHelpers">
+	<tr data-order="helper" id="_helper">
 
 		<td class="attributes"><code>
 			 public 
 
-			<code><a href="class-Charcoal.View.Mustache.MustacheEngine.html">Charcoal\View\Mustache\MustacheEngine</a></code>
+			<code><a href="class-Charcoal.View.Mustache.GenericHelper.html">Charcoal\View\Mustache\GenericHelper</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_addHelpers">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#106-121" title="Go to source code">addHelpers</a>( <span>mixed <var>$helpers</var></span> )</code>
-
-		<div class="description short">
-			<p>Add additional helpers.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Add additional helpers.</p>
-
-<p>Existing helpers are overwritten.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$helpers</var></dt>
-					<dd>The helpers to append.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Charcoal.View.Mustache.MustacheEngine.html">Charcoal\View\Mustache\MustacheEngine</a></code><br>Chainable
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="helpers" id="_helpers">
-
-		<td class="attributes"><code>
-			 public 
-
-			array
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_helpers">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#123-133" title="Go to source code">helpers</a>( )</code>
+		<a class="anchor" href="#_helper">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#93-102" title="Go to source code">helper</a>( )</code>
 
 		<div class="description short">
 			
@@ -415,7 +368,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					array
+					<code><a href="class-Charcoal.View.Mustache.GenericHelper.html">Charcoal\View\Mustache\GenericHelper</a></code>
 				</div>
 
 
@@ -424,19 +377,19 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="createHelpers" id="_createHelpers">
+	<tr data-order="createHelper" id="_createHelper">
 
 		<td class="attributes"><code>
 			 protected 
 
-			array
+			<code><a href="class-Charcoal.View.Mustache.GenericHelper.html">Charcoal\View\Mustache\GenericHelper</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_createHelpers">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#135-144" title="Go to source code">createHelpers</a>( )</code>
+		<a class="anchor" href="#_createHelper">#</a>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#104-111" title="Go to source code">createHelper</a>( )</code>
 
 		<div class="description short">
 			
@@ -449,7 +402,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					array
+					<code><a href="class-Charcoal.View.Mustache.GenericHelper.html">Charcoal\View\Mustache\GenericHelper</a></code>
 				</div>
 
 
@@ -470,7 +423,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_render">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#166-174" title="Go to source code">render</a>( <span>string <var>$templateIdent</var></span>, <span>mixed <var>$context</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#113-121" title="Go to source code">render</a>( <span>string <var>$templateIdent</var></span>, <span>mixed <var>$context</var></span> )</code>
 
 		<div class="description short">
 			
@@ -513,7 +466,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_renderTemplate">#</a>
-		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#176-184" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var></span>, <span>mixed <var>$context</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.Mustache.MustacheEngine.html#123-131" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var></span>, <span>mixed <var>$context</var></span> )</code>
 
 		<div class="description short">
 			
