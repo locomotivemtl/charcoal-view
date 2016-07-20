@@ -1,13 +1,20 @@
 <?php
 
-namespace Charcoal\View\Mustache\Helpers;
+namespace Charcoal\View\Mustache;
+
+use \ArrayIterator;
+use \IteratorAggregate;
 
 use \Mustache_LambdaHelper as LambdaHelper;
 
 /**
- * Mustache helpers for rendering CSS and JavaScript.
+ * Default Mustache helpers for rendering.
+ *
+ * > Helpers can be global variables or objects, closures (e.g. for higher order sections),
+ * > or any other valid Mustache context value.
+ * — {@link https://github.com/bobthecow/mustache.php/wiki#helpers}
  */
-class AssetsHelpers extends AbstractHelpers
+class GenericHelper implements IteratorAggregate
 {
     /**
      * A string concatenation of inline `<script>` elements.
@@ -24,13 +31,6 @@ class AssetsHelpers extends AbstractHelpers
     private static $jsRequirements = [];
 
     /**
-     * A string concatenation of inline `<style>` elements.
-     *
-     * @var string $css;
-     */
-    private static $css = '';
-
-    /**
      * An array of `<link>` elements referencing external style sheets.
      *
      * @var array $cssRequirements
@@ -38,13 +38,24 @@ class AssetsHelpers extends AbstractHelpers
     private static $cssRequirements = [];
 
     /**
-     * Retrieve the collection of helpers.
+     * A string concatenation of inline `<style>` elements.
      *
-     * @return array
+     * @var string $css;
      */
-    public function toArray()
+    private static $css = '';
+
+    /**
+     * Retrieve a traversable iterator.
+     *
+     * @see    IteratorAggregate::getIterator()
+     * @return Traversable
+     */
+    public function getIterator()
     {
-        return [
+        return new ArrayIterator([
+            '_t' => function($txt) {
+                return $txt;
+            },
             'addJs' => function($js, LambdaHelper $helper) {
                 return $this->addJs($js, $helper);
             },
@@ -69,7 +80,7 @@ class AssetsHelpers extends AbstractHelpers
             'cssRequirements' => function() {
                 return $this->cssRequirements();
             }
-        ];
+        ]);
     }
 
     /**
