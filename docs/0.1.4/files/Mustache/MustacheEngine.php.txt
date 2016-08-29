@@ -11,6 +11,7 @@ use \Mustache_Engine;
 // Intra-module (`charcoal-view`) depentencies
 use \Charcoal\View\AbstractEngine;
 
+use \Charcoal\View\Mustache\GenericHelpers;
 use \Charcoal\View\Mustache\AssetsHelpers;
 use \Charcoal\View\Mustache\HelpersInterface;
 
@@ -148,9 +149,13 @@ class MustacheEngine extends AbstractEngine
      */
     protected function createHelpers()
     {
-        $assets = new AssetsHelpers();
+        $generic = new GenericHelpers();
+        $assets  = new AssetsHelpers();
 
-        return $this->arrayableHelpers($assets);
+        return array_merge(
+            $this->arrayableHelpers($generic),
+            $this->arrayableHelpers($assets)
+        );
     }
 
     /**
