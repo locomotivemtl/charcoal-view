@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\View\GenericView</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.View.html">
+						View<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.View.Engine.html">
+						Engine					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Mustache.html">
+						Mustache					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Php.html">
+						Php					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Twig.html">
+						Twig					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.AbstractEngine.html">AbstractEngine</a></li>
+				<li><a href="class-Charcoal.View.AbstractLoader.html">AbstractLoader</a></li>
+				<li><a href="class-Charcoal.View.AbstractView.html">AbstractView</a></li>
+				<li class="active"><a href="class-Charcoal.View.GenericView.html">GenericView</a></li>
+				<li><a href="class-Charcoal.View.Renderer.html">Renderer</a></li>
+				<li><a href="class-Charcoal.View.ViewConfig.html">ViewConfig</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.EngineInterface.html">EngineInterface</a></li>
+				<li><a href="class-Charcoal.View.LoaderInterface.html">LoaderInterface</a></li>
+				<li><a href="class-Charcoal.View.ViewableInterface.html">ViewableInterface</a></li>
+				<li><a href="class-Charcoal.View.ViewInterface.html">ViewInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.ViewableTrait.html">ViewableTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.View.html" title="Summary of Charcoal\View"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class GenericView</h1>
+
+
+	<div class="description">
+	<p>Concrete implementation of a <em>View</em> interface (extends <code>AbstractView</code>).</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Charcoal.View.AbstractView.html"><span>Charcoal\View\AbstractView</span></a>
+			
+			 implements 
+<span>Charcoal\Config\ConfigurableInterface</span>, 
+			
+<span>Psr\Log\LoggerAwareInterface</span>, 
+			
+				<a href="class-Charcoal.View.ViewInterface.html"><span>Charcoal\View\ViewInterface</span></a>
+			
+			 uses 
+					Psr\Log\LoggerAwareTrait (not available)
+
+			
+					Charcoal\Config\ConfigurableTrait (not available)
+
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Charcoal\View\GenericView</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.View.GenericView.html#7-34" title="Go to source code">Charcoal/View/GenericView.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Charcoal.View.GenericView.html#13-33" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			<p>Build the object with an array of dependencies.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Build the object with an array of dependencies.</p>
+
+<h2>Optional parameters:</h2>
+
+<ul>
+<li><code>logger</code> a PSR-3 logger</li>
+<li><code>config</code> a ViewConfig object</li>
+</ul>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd>View class dependencies.</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If required parameters are missing.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.View.AbstractView.html#methods">Charcoal\View\AbstractView</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.View.AbstractView.html#___toString">__toString()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_context">context()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_createConfig">createConfig()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_engine">engine()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_loadTemplate">loadTemplate()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_render">render()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_renderTemplate">renderTemplate()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_setContext">setContext()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_setEngine">setEngine()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_setTemplate">setTemplate()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_setTemplateIdent">setTemplateIdent()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_template">template()</a>, 
+			<a href="class-Charcoal.View.AbstractView.html#_templateIdent">templateIdent()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
