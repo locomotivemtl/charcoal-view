@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\View\AbstractEngine</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.View.html">
+						View<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.View.Engine.html">
+						Engine					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Mustache.html">
+						Mustache					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Php.html">
+						Php					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Twig.html">
+						Twig					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Charcoal.View.AbstractEngine.html">AbstractEngine</a></li>
+				<li><a href="class-Charcoal.View.AbstractLoader.html">AbstractLoader</a></li>
+				<li><a href="class-Charcoal.View.AbstractView.html">AbstractView</a></li>
+				<li><a href="class-Charcoal.View.GenericView.html">GenericView</a></li>
+				<li><a href="class-Charcoal.View.Renderer.html">Renderer</a></li>
+				<li><a href="class-Charcoal.View.ViewConfig.html">ViewConfig</a></li>
+				<li><a href="class-Charcoal.View.ViewServiceProvider.html">ViewServiceProvider</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.EngineInterface.html">EngineInterface</a></li>
+				<li><a href="class-Charcoal.View.LoaderInterface.html">LoaderInterface</a></li>
+				<li><a href="class-Charcoal.View.ViewableInterface.html">ViewableInterface</a></li>
+				<li><a href="class-Charcoal.View.ViewInterface.html">ViewInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.ViewableTrait.html">ViewableTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.View.html" title="Summary of Charcoal\View"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractEngine</h1>
+
+
+	<div class="description">
+	<p>Default implementation, as abstract class, of the <code>EngineInterface</code>.</p>
+
+<p>View Engines are comprised of 2 things:
+- A template loader, wich is a <code>LoaderInterfaceObject</code> - Set with <code>set_loader()</code> / Get with <code>loader()</code> - Provides <code>loadtemplate()</code> method
+- A <code>render()</code> method, which takes a $template and a $context arguments</p>
+
+<blockquote>
+  <p>Engines implements the <code>LoggerAwareInterface</code>. A logger can be accessed with the <code>logger()</code> method.</p>
+</blockquote>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Charcoal\View\AbstractEngine</span></b>			
+			 implements 
+				<a href="class-Charcoal.View.EngineInterface.html"><span>Charcoal\View\EngineInterface</span></a>, 
+			
+<span>Psr\Log\LoggerAwareInterface</span>
+			
+			 uses 
+					Psr\Log\LoggerAwareTrait (not available)
+
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Charcoal.View.Engine.PhpEngine.html">Charcoal\View\Engine\PhpEngine</a>, 
+			<a href="class-Charcoal.View.Mustache.MustacheEngine.html">Charcoal\View\Mustache\MustacheEngine</a>, 
+			<a href="class-Charcoal.View.Twig.TwigEngine.html">Charcoal\View\Twig\TwigEngine</a>
+	</div>
+
+	<div>
+		<h4>Indirect known subclasses</h4>
+			<a href="class-Charcoal.View.Engine.PhpMustacheEngine.html">Charcoal\View\Engine\PhpMustacheEngine</a>
+	</div>
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.View.AbstractEngine.html#16-95" title="Go to source code">Charcoal/View/AbstractEngine.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="type" id="_type">
+
+		<td class="attributes"><code>
+			abstract public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_type">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#38-41" title="Go to source code">type</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setLoader" id="_setLoader">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.View.EngineInterface.html">Charcoal\View\EngineInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setLoader">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#43-51" title="Go to source code">setLoader</a>( <span><code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code> <var>$loader</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$loader</var></dt>
+					<dd>A loader instance.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.EngineInterface.html">Charcoal\View\EngineInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.EngineInterface.html#_setLoader">Charcoal\View\EngineInterface::setLoader()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loader" id="_loader">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loader">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#53-65" title="Go to source code">loader</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					Exception<br>If the loader getter is called before it was set.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadTemplate" id="_loadTemplate">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadTemplate">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#67-76" title="Go to source code">loadTemplate</a>( <span>string <var>$templateIdent</var></span> )</code>
+
+		<div class="description short">
+			<p>Delegates template loading to the engine's Loader object.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Delegates template loading to the engine's Loader object.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateIdent</var></dt>
+					<dd>The template identifier to load.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The template string, loaded from identifier.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.EngineInterface.html#_loadTemplate">Charcoal\View\EngineInterface::loadTemplate()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="render" id="_render">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_render">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#78-87" title="Go to source code">render</a>( <span>string <var>$templateIdent</var></span>, <span>mixed <var>$context</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateIdent</var></dt>
+					<dd>The template identifier to load and render.</dd>
+					<dt><var>$context</var></dt>
+					<dd>The rendering context.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The rendered template string.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.EngineInterface.html#_render">Charcoal\View\EngineInterface::render()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="renderTemplate" id="_renderTemplate">
+
+		<td class="attributes"><code>
+			abstract public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_renderTemplate">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#89-94" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var></span>, <span>mixed <var>$context</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateString</var></dt>
+					<dd>The template string to render.</dd>
+					<dt><var>$context</var></dt>
+					<dd>The rendering context.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The rendered template string.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.EngineInterface.html#_renderTemplate">Charcoal\View\EngineInterface::renderTemplate()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

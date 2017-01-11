@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\View\AbstractView</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.View.html">
+						View<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.View.Engine.html">
+						Engine					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Mustache.html">
+						Mustache					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Php.html">
+						Php					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Twig.html">
+						Twig					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.AbstractEngine.html">AbstractEngine</a></li>
+				<li><a href="class-Charcoal.View.AbstractLoader.html">AbstractLoader</a></li>
+				<li class="active"><a href="class-Charcoal.View.AbstractView.html">AbstractView</a></li>
+				<li><a href="class-Charcoal.View.GenericView.html">GenericView</a></li>
+				<li><a href="class-Charcoal.View.Renderer.html">Renderer</a></li>
+				<li><a href="class-Charcoal.View.ViewConfig.html">ViewConfig</a></li>
+				<li><a href="class-Charcoal.View.ViewServiceProvider.html">ViewServiceProvider</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.EngineInterface.html">EngineInterface</a></li>
+				<li><a href="class-Charcoal.View.LoaderInterface.html">LoaderInterface</a></li>
+				<li><a href="class-Charcoal.View.ViewableInterface.html">ViewableInterface</a></li>
+				<li><a href="class-Charcoal.View.ViewInterface.html">ViewInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.ViewableTrait.html">ViewableTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.View.html" title="Summary of Charcoal\View"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractView</h1>
+
+
+	<div class="description">
+	<p>Base abstract class for <em>View</em> interfaces, implements <code>ViewInterface</code>.</p>
+
+<p>Also implements the <code>ConfigurableInterface</code></p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Charcoal\View\AbstractView</span></b>			
+			 implements 
+<span>Psr\Log\LoggerAwareInterface</span>, 
+			
+				<a href="class-Charcoal.View.ViewInterface.html"><span>Charcoal\View\ViewInterface</span></a>
+			
+			 uses 
+					Psr\Log\LoggerAwareTrait (not available)
+
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Charcoal.View.GenericView.html">Charcoal\View\GenericView</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.View.AbstractView.html#17-209" title="Go to source code">Charcoal/View/AbstractView.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="setEngine" id="_setEngine">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.View.ViewInterface.html">Charcoal\View\ViewInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setEngine">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#48-58" title="Go to source code">setEngine</a>( <span><code><a href="class-Charcoal.View.EngineInterface.html">Charcoal\View\EngineInterface</a></code> <var>$engine</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the engine (<code>EngineInterface</code>) dependency.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the engine (<code>EngineInterface</code>) dependency.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$engine</var></dt>
+					<dd>The rendering engine.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.ViewInterface.html">Charcoal\View\ViewInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_setEngine">Charcoal\View\ViewInterface::setEngine()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="engine" id="_engine">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.View.EngineInterface.html">Charcoal\View\EngineInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_engine">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#60-74" title="Go to source code">engine</a>( )</code>
+
+		<div class="description short">
+			<p>Get the view's rendering engine instance.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the view's rendering engine instance.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.EngineInterface.html">Charcoal\View\EngineInterface</a></code>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					Exception<br>If the engine is accessed before it was properly set.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_engine">Charcoal\View\ViewInterface::engine()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTemplateIdent" id="_setTemplateIdent">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.View.AbstractView.html">Charcoal\View\AbstractView</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTemplateIdent">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#76-91" title="Go to source code">setTemplateIdent</a>( <span>string <var>$templateIdent</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateIdent</var></dt>
+					<dd>The template ident.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.AbstractView.html">Charcoal\View\AbstractView</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the provided argument is not a string.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_setTemplateIdent">Charcoal\View\ViewInterface::setTemplateIdent()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="templateIdent" id="_templateIdent">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_templateIdent">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#93-99" title="Go to source code">templateIdent</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_templateIdent">Charcoal\View\ViewInterface::templateIdent()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTemplate" id="_setTemplate">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.View.AbstractView.html">Charcoal\View\AbstractView</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTemplate">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#101-116" title="Go to source code">setTemplate</a>( <span>string <var>$template</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$template</var></dt>
+					<dd>The template string.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.AbstractView.html">Charcoal\View\AbstractView</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the provided argument is not a string.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_setTemplate">Charcoal\View\ViewInterface::setTemplate()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="template" id="_template">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_template">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#118-128" title="Go to source code">template</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_template">Charcoal\View\ViewInterface::template()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadTemplate" id="_loadTemplate">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadTemplate">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#130-150" title="Go to source code">loadTemplate</a>( <span>string <var>$templateIdent</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateIdent</var></dt>
+					<dd>The template identifier to load..</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the template ident is not a string.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_loadTemplate">Charcoal\View\ViewInterface::loadTemplate()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setContext" id="_setContext">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.View.AbstractView.html">Charcoal\View\AbstractView</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setContext">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#152-162" title="Go to source code">setContext</a>( <span>mixed <var>$context</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the rendering context ("view controller").</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the rendering context ("view controller").</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$context</var></dt>
+					<dd>The context / view controller to render the template with.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.View.AbstractView.html">Charcoal\View\AbstractView</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_setContext">Charcoal\View\ViewInterface::setContext()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="context" id="_context">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_context">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#164-172" title="Go to source code">context</a>( )</code>
+
+		<div class="description short">
+			<p>Get the rendering context ("view controller").</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the rendering context ("view controller").</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_context">Charcoal\View\ViewInterface::context()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="render" id="_render">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_render">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#174-190" title="Go to source code">render</a>( <span>string <var>$templateIdent</var> = <span class="php-keyword1">null</span></span>, <span>mixed <var>$context</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Load a template (from identifier) and render it.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Load a template (from identifier) and render it.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateIdent</var></dt>
+					<dd>The template identifier, to load and render.</dd>
+					<dt><var>$context</var></dt>
+					<dd>The view controller (rendering context).</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_render">Charcoal\View\ViewInterface::render()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="renderTemplate" id="_renderTemplate">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_renderTemplate">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractView.html#192-208" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var> = <span class="php-keyword1">null</span></span>, <span>mixed <var>$context</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Render a template (from string).</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Render a template (from string).</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateString</var></dt>
+					<dd>The full template string to render.</dd>
+					<dt><var>$context</var></dt>
+					<dd>The view controller (rendering context).</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.ViewInterface.html#_renderTemplate">Charcoal\View\ViewInterface::renderTemplate()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
