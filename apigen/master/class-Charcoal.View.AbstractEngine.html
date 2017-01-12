@@ -31,11 +31,6 @@
 
 						<ul>
 				<li>
-					<a href="namespace-Charcoal.View.Engine.html">
-						Engine					</a>
-
-						</li>
-				<li>
 					<a href="namespace-Charcoal.View.Mustache.html">
 						Mustache					</a>
 
@@ -149,15 +144,11 @@
 
 	<div>
 		<h4>Direct known subclasses</h4>
-			<a href="class-Charcoal.View.Engine.PhpEngine.html">Charcoal\View\Engine\PhpEngine</a>, 
 			<a href="class-Charcoal.View.Mustache.MustacheEngine.html">Charcoal\View\Mustache\MustacheEngine</a>, 
+			<a href="class-Charcoal.View.Php.PhpEngine.html">Charcoal\View\Php\PhpEngine</a>, 
 			<a href="class-Charcoal.View.Twig.TwigEngine.html">Charcoal\View\Twig\TwigEngine</a>
 	</div>
 
-	<div>
-		<h4>Indirect known subclasses</h4>
-			<a href="class-Charcoal.View.Engine.PhpMustacheEngine.html">Charcoal\View\Engine\PhpMustacheEngine</a>
-	</div>
 
 
 
@@ -169,7 +160,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.View.AbstractEngine.html#16-95" title="Go to source code">Charcoal/View/AbstractEngine.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.View.AbstractEngine.html#13-102" title="Go to source code">Charcoal/View/AbstractEngine.php</a>
 		<br>
 	</div>
 
@@ -189,7 +180,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_type">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractEngine.html#38-41" title="Go to source code">type</a>( )</code>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#35-38" title="Go to source code">type</a>( )</code>
 
 		<div class="description short">
 			
@@ -211,44 +202,50 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="setLoader" id="_setLoader">
+	<tr data-order="__construct" id="___construct">
 
 		<td class="attributes"><code>
 			 public 
 
-			<code><a href="class-Charcoal.View.EngineInterface.html">Charcoal\View\EngineInterface</a></code>
+			
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_setLoader">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractEngine.html#43-51" title="Go to source code">setLoader</a>( <span><code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code> <var>$loader</var></span> )</code>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#40-55" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Build the object with an array of dependencies.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Build the object with an array of dependencies.</p>
+
+<h2>Required parameters:</h2>
+
+<ul>
+<li><code>logger</code> a PSR-3 logger</li>
+</ul>
+
+<h2>Optional parameters:</h2>
+
+<ul>
+<li><code>loader</code> a Loader object</li>
+</ul>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$loader</var></dt>
-					<dd>A loader instance.</dd>
+					<dt><var>$data</var></dt>
+					<dd>Engine dependencie.</dd>
 				</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Charcoal.View.EngineInterface.html">Charcoal\View\EngineInterface</a></code><br>Chainable
-				</div>
 
 
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.EngineInterface.html#_setLoader">Charcoal\View\EngineInterface::setLoader()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -264,7 +261,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loader">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractEngine.html#53-65" title="Go to source code">loader</a>( )</code>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#66-72" title="Go to source code">loader</a>( )</code>
 
 		<div class="description short">
 			
@@ -280,10 +277,6 @@
 					<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code>
 				</div>
 
-				<h4>Throws</h4>
-				<div class="list">
-					Exception<br>If the loader getter is called before it was set.
-				</div>
 
 
 
@@ -302,7 +295,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loadTemplate">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractEngine.html#67-76" title="Go to source code">loadTemplate</a>( <span>string <var>$templateIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#74-83" title="Go to source code">loadTemplate</a>( <span>string <var>$templateIdent</var></span> )</code>
 
 		<div class="description short">
 			<p>Delegates template loading to the engine's Loader object.</p>
@@ -343,7 +336,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_render">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractEngine.html#78-87" title="Go to source code">render</a>( <span>string <var>$templateIdent</var></span>, <span>mixed <var>$context</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#85-94" title="Go to source code">render</a>( <span>string <var>$templateIdent</var></span>, <span>mixed <var>$context</var></span> )</code>
 
 		<div class="description short">
 			
@@ -386,7 +379,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_renderTemplate">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractEngine.html#89-94" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var></span>, <span>mixed <var>$context</var></span> )</code>
+		<code><a href="source-class-Charcoal.View.AbstractEngine.html#96-101" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var></span>, <span>mixed <var>$context</var></span> )</code>
 
 		<div class="description short">
 			

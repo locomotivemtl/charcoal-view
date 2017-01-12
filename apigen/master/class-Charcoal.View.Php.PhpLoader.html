@@ -31,11 +31,6 @@
 
 						<ul>
 				<li>
-					<a href="namespace-Charcoal.View.Engine.html">
-						Engine					</a>
-
-						</li>
-				<li>
 					<a href="namespace-Charcoal.View.Mustache.html">
 						Mustache					</a>
 
@@ -60,6 +55,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Charcoal.View.Php.PhpEngine.html">PhpEngine</a></li>
 				<li class="active"><a href="class-Charcoal.View.Php.PhpLoader.html">PhpLoader</a></li>
 			</ul>
 
@@ -143,7 +139,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a>\<a href="namespace-Charcoal.View.Php.html">Php</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.View.Php.PhpLoader.html#12-99" title="Go to source code">Charcoal/View/Php/PhpLoader.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.View.Php.PhpLoader.html#12-30" title="Go to source code">Charcoal/View/Php/PhpLoader.php</a>
 		<br>
 	</div>
 
@@ -151,10 +147,10 @@
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="load" id="_load">
+	<tr data-order="filenameFromIdent" id="_filenameFromIdent">
 
 		<td class="attributes"><code>
-			 public 
+			 protected 
 
 			string
 			
@@ -162,66 +158,21 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_load">#</a>
-		<code><a href="source-class-Charcoal.View.Php.PhpLoader.html#17-71" title="Go to source code">load</a>( <span>string <var>$ident</var></span> )</code>
+		<a class="anchor" href="#_filenameFromIdent">#</a>
+		<code><a href="source-class-Charcoal.View.Php.PhpLoader.html#17-29" title="Go to source code">filenameFromIdent</a>( <span>string <var>$ident</var></span> )</code>
 
 		<div class="description short">
-			<p>AbstractLoader > load()</p>
+			<p>Convert an identifier to a file path.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>AbstractLoader > load()</p>
+			<p>Convert an identifier to a file path.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$ident</var></dt>
-					<dd>The template ident to load and render.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					InvalidArgumentException<br>If the template ident is not a string.
-				</div>
-
-
-
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_load">Charcoal\View\LoaderInterface::load()</a></code></div>
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="classnameToIdent" id="_classnameToIdent">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_classnameToIdent">#</a>
-		<code><a href="source-class-Charcoal.View.Php.PhpLoader.html#87-98" title="Go to source code">classnameToIdent</a>( <span>string <var>$classname</var></span> )</code>
-
-		<div class="description short">
-			<p>Convert a FQN to an identifier.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Convert a FQN to an identifier.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$classname</var></dt>
-					<dd>The FQN to convert.</dd>
+					<dd>The identifier to convert.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -242,13 +193,10 @@
 	<tr>
 		<td><code>
 			<a href="class-Charcoal.View.AbstractLoader.html#___construct">__construct()</a>, 
-			<a href="class-Charcoal.View.AbstractLoader.html#_addPath">addPath()</a>, 
 			<a href="class-Charcoal.View.AbstractLoader.html#_basePath">basePath()</a>, 
-			<a href="class-Charcoal.View.AbstractLoader.html#_paths">paths()</a>, 
-			<a href="class-Charcoal.View.AbstractLoader.html#_prependPath">prependPath()</a>, 
-			<a href="class-Charcoal.View.AbstractLoader.html#_resolvePath">resolvePath()</a>, 
-			<a href="class-Charcoal.View.AbstractLoader.html#_setBasePath">setBasePath()</a>, 
-			<a href="class-Charcoal.View.AbstractLoader.html#_setPaths">setPaths()</a>
+			<a href="class-Charcoal.View.AbstractLoader.html#_findTemplateFile">findTemplateFile()</a>, 
+			<a href="class-Charcoal.View.AbstractLoader.html#_load">load()</a>, 
+			<a href="class-Charcoal.View.AbstractLoader.html#_paths">paths()</a>
 		</code></td>
 	</tr>
 	</table>

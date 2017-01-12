@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Charcoal\View\Engine\PhpMustacheEngine</title>
+	<title>Class Charcoal\View\Php\PhpEngine</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -30,17 +30,12 @@
 					</a>
 
 						<ul>
-				<li class="active">
-					<a href="namespace-Charcoal.View.Engine.html">
-						Engine					</a>
-
-						</li>
 				<li>
 					<a href="namespace-Charcoal.View.Mustache.html">
 						Mustache					</a>
 
 						</li>
-				<li>
+				<li class="active">
 					<a href="namespace-Charcoal.View.Php.html">
 						Php					</a>
 
@@ -60,8 +55,8 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Charcoal.View.Engine.PhpEngine.html">PhpEngine</a></li>
-				<li class="active"><a href="class-Charcoal.View.Engine.PhpMustacheEngine.html">PhpMustacheEngine</a></li>
+				<li class="active"><a href="class-Charcoal.View.Php.PhpEngine.html">PhpEngine</a></li>
+				<li><a href="class-Charcoal.View.Php.PhpLoader.html">PhpLoader</a></li>
 			</ul>
 
 
@@ -88,7 +83,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Charcoal.View.Engine.html" title="Summary of Charcoal\View\Engine"><span>Namespace</span></a>
+				<a href="namespace-Charcoal.View.Php.html" title="Summary of Charcoal\View\Php"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -100,12 +95,9 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class PhpMustacheEngine</h1>
+	<h1>Class PhpEngine</h1>
 
 
-	<div class="description">
-	<p>Mustache Engine with a PHP loader</p>
-	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
@@ -123,14 +115,7 @@
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html"><span>Charcoal\View\Mustache\MustacheEngine</span></a>
-			
-			
-			
-		</dd>
-		<dd style="padding-left:60px">
-			<img src="resources/inherit.png" alt="Extended by">
-<b><span>Charcoal\View\Engine\PhpMustacheEngine</span></b>			
+<b><span>Charcoal\View\Php\PhpEngine</span></b>			
 			
 			
 		</dd>
@@ -146,10 +131,10 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a>\<a href="namespace-Charcoal.View.Engine.html">Engine</a><br>
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a>\<a href="namespace-Charcoal.View.Php.html">Php</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.View.Engine.PhpMustacheEngine.html#8-31" title="Go to source code">Charcoal/View/PhpMustache/PhpMustacheEngine.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.View.Php.PhpEngine.html#10-42" title="Go to source code">Charcoal/View/Php/PhpEngine.php</a>
 		<br>
 	</div>
 
@@ -169,7 +154,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_type">#</a>
-		<code><a href="source-class-Charcoal.View.Engine.PhpMustacheEngine.html#13-19" title="Go to source code">type</a>( )</code>
+		<code><a href="source-class-Charcoal.View.Php.PhpEngine.html#15-21" title="Go to source code">type</a>( )</code>
 
 		<div class="description short">
 			
@@ -187,25 +172,23 @@
 
 
 
-				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-Charcoal.View.Mustache.MustacheEngine.html#_type">Charcoal\View\Mustache\MustacheEngine::type()</a></code></div>
 
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="createLoader" id="_createLoader">
+	<tr data-order="renderTemplate" id="_renderTemplate">
 
 		<td class="attributes"><code>
 			 public 
 
-			<code><a href="class-Charcoal.View.Php.PhpLoader.html">Charcoal\View\Php\PhpLoader</a></code>
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_createLoader">#</a>
-		<code><a href="source-class-Charcoal.View.Engine.PhpMustacheEngine.html#21-30" title="Go to source code">createLoader</a>( )</code>
+		<a class="anchor" href="#_renderTemplate">#</a>
+		<code><a href="source-class-Charcoal.View.Php.PhpEngine.html#23-41" title="Go to source code">renderTemplate</a>( <span>string <var>$templateString</var></span>, <span>mixed <var>$context</var></span> )</code>
 
 		<div class="description short">
 			
@@ -215,10 +198,17 @@
 			
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateString</var></dt>
+					<dd>The template string to render.</dd>
+					<dt><var>$context</var></dt>
+					<dd>The rendering context.</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-Charcoal.View.Php.PhpLoader.html">Charcoal\View\Php\PhpLoader</a></code>
+					string<br>The rendered template string.
 				</div>
 
 
@@ -230,28 +220,13 @@
 	</table>
 
 	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Charcoal.View.Mustache.MustacheEngine.html#methods">Charcoal\View\Mustache\MustacheEngine</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#___construct">__construct()</a>, 
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#_createHelpers">createHelpers()</a>, 
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#_createMustache">createMustache()</a>, 
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#_helpers">helpers()</a>, 
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#_mergeHelpers">mergeHelpers()</a>, 
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#_mustache">mustache()</a>, 
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#_render">render()</a>, 
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#_renderTemplate">renderTemplate()</a>, 
-			<a href="class-Charcoal.View.Mustache.MustacheEngine.html#_setHelpers">setHelpers()</a>
-		</code></td>
-	</tr>
-	</table>
-	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-Charcoal.View.AbstractEngine.html#methods">Charcoal\View\AbstractEngine</a></caption>
 	<tr>
 		<td><code>
+			<a href="class-Charcoal.View.AbstractEngine.html#___construct">__construct()</a>, 
 			<a href="class-Charcoal.View.AbstractEngine.html#_loadTemplate">loadTemplate()</a>, 
 			<a href="class-Charcoal.View.AbstractEngine.html#_loader">loader()</a>, 
-			<a href="class-Charcoal.View.AbstractEngine.html#_setLoader">setLoader()</a>
+			<a href="class-Charcoal.View.AbstractEngine.html#_render">render()</a>
 		</code></td>
 	</tr>
 	</table>

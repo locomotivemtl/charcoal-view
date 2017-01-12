@@ -31,11 +31,6 @@
 
 						<ul>
 				<li>
-					<a href="namespace-Charcoal.View.Engine.html">
-						Engine					</a>
-
-						</li>
-				<li>
 					<a href="namespace-Charcoal.View.Mustache.html">
 						Mustache					</a>
 
@@ -157,7 +152,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.View.AbstractLoader.html#15-156" title="Go to source code">Charcoal/View/AbstractLoader.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.View.AbstractLoader.html#15-191" title="Go to source code">Charcoal/View/AbstractLoader.php</a>
 		<br>
 	</div>
 
@@ -168,7 +163,7 @@
 	<tr data-order="__construct" id="___construct">
 
 		<td class="attributes"><code>
-			final public 
+			 public 
 
 			
 			
@@ -177,7 +172,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#34-55" title="Go to source code">__construct</a>( <span>array <var>$data</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#34-47" title="Go to source code">__construct</a>( <span>array <var>$data</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Default constructor, if none is provided by the concrete class implementations.</p>
@@ -206,52 +201,7 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="setBasePath" id="_setBasePath">
-
-		<td class="attributes"><code>
-			 public 
-
-			<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_setBasePath">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#57-72" title="Go to source code">setBasePath</a>( <span>string <var>$basePath</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$basePath</var></dt>
-					<dd>The base path to set.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code><br>Chainable
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					InvalidArgumentException<br>If the base path parameter is not a string.
-				</div>
-
-
-
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_setBasePath">Charcoal\View\LoaderInterface::setBasePath()</a></code></div>
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="basePath" id="_basePath">
+	<tr data-order="load" id="_load">
 
 		<td class="attributes"><code>
 			 public 
@@ -262,8 +212,49 @@
 		</td>
 
 		<td class="name"><div>
+		<a class="anchor" href="#_load">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#49-63" title="Go to source code">load</a>( <span>string <var>$ident</var></span> )</code>
+
+		<div class="description short">
+			<p>Load a template content</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Load a template content</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ident</var></dt>
+					<dd>The template ident to load and render.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_load">Charcoal\View\LoaderInterface::load()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="basePath" id="_basePath">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
 		<a class="anchor" href="#_basePath">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#74-80" title="Go to source code">basePath</a>( )</code>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#65-71" title="Go to source code">basePath</a>( )</code>
 
 		<div class="description short">
 			
@@ -282,15 +273,13 @@
 
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_basePath">Charcoal\View\LoaderInterface::basePath()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
 	<tr data-order="paths" id="_paths">
 
 		<td class="attributes"><code>
-			 public 
+			 protected 
 
 			string[]
 			
@@ -299,7 +288,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_paths">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#82-89" title="Go to source code">paths</a>( )</code>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#73-80" title="Go to source code">paths</a>( )</code>
 
 		<div class="description short">
 			
@@ -322,170 +311,47 @@
 				</div>
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_paths">Charcoal\View\LoaderInterface::paths()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="setPaths" id="_setPaths">
+	<tr data-order="findTemplateFile" id="_findTemplateFile">
 
 		<td class="attributes"><code>
-			 public 
+			 protected 
 
-			<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code>
+			string|null
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_setPaths">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#91-104" title="Go to source code">setPaths</a>( <span>array <var>$paths</var></span> )</code>
+		<a class="anchor" href="#_findTemplateFile">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#82-119" title="Go to source code">findTemplateFile</a>( <span>string <var>$ident</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Get the template file (full path + filename) to load from an ident.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Get the template file (full path + filename) to load from an ident.</p>
+
+<p>This method first generates the filename for an identifier and search for it in all of the loader's paths.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$paths</var></dt>
-					<dd>The list of path to add.</dd>
+					<dt><var>$ident</var></dt>
+					<dd>The template identifier to load.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code><br>Chainable
-				</div>
-
-
-
-
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_setPaths">Charcoal\View\LoaderInterface::setPaths()</a></code></div>
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="addPath" id="_addPath">
-
-		<td class="attributes"><code>
-			 public 
-
-			<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_addPath">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#106-115" title="Go to source code">addPath</a>( <span>string <var>$path</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$path</var></dt>
-					<dd>The path to add to the load.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code><br>Chainable
-				</div>
-
-
-
-
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_addPath">Charcoal\View\LoaderInterface::addPath()</a></code></div>
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="prependPath" id="_prependPath">
-
-		<td class="attributes"><code>
-			 public 
-
-			<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_prependPath">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#117-127" title="Go to source code">prependPath</a>( <span>string <var>$path</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$path</var></dt>
-					<dd>The path to add (prepend) to the load.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Charcoal.View.LoaderInterface.html">Charcoal\View\LoaderInterface</a></code><br>Chainable
-				</div>
-
-
-
-
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_prependPath">Charcoal\View\LoaderInterface::prependPath()</a></code></div>
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="resolvePath" id="_resolvePath">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_resolvePath">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#129-149" title="Go to source code">resolvePath</a>( <span>string <var>$path</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$path</var></dt>
-					<dd>The path to resolve.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
+					string|null<br>The full path + filename of the found template. Null if nothing was found.
 				</div>
 
 				<h4>Throws</h4>
 				<div class="list">
-					InvalidArgumentException<br>If the path argument is not a string.
+					InvalidArgumentException<br>If the template ident is not a string.
 				</div>
 
 
@@ -493,10 +359,10 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="load" id="_load">
+	<tr data-order="filenameFromIdent" id="_filenameFromIdent">
 
 		<td class="attributes"><code>
-			abstract public 
+			abstract protected 
 
 			string
 			
@@ -504,8 +370,8 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_load">#</a>
-		<code><a href="source-class-Charcoal.View.AbstractLoader.html#151-155" title="Go to source code">load</a>( <span>string <var>$ident</var></span> )</code>
+		<a class="anchor" href="#_filenameFromIdent">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#121-125" title="Go to source code">filenameFromIdent</a>( <span>string <var>$ident</var></span> )</code>
 
 		<div class="description short">
 			
@@ -518,7 +384,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$ident</var></dt>
-					<dd>The template identifier to load.</dd>
+					<dd>The template identifier to convert to a filename.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -529,8 +395,6 @@
 
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_load">Charcoal\View\LoaderInterface::load()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
