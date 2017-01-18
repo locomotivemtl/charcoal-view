@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\View\AbstractLoader</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.View.html">
+						View<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.View.Mustache.html">
+						Mustache					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Php.html">
+						Php					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.View.Twig.html">
+						Twig					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.AbstractEngine.html">AbstractEngine</a></li>
+				<li class="active"><a href="class-Charcoal.View.AbstractLoader.html">AbstractLoader</a></li>
+				<li><a href="class-Charcoal.View.AbstractView.html">AbstractView</a></li>
+				<li><a href="class-Charcoal.View.GenericView.html">GenericView</a></li>
+				<li><a href="class-Charcoal.View.Renderer.html">Renderer</a></li>
+				<li><a href="class-Charcoal.View.ViewConfig.html">ViewConfig</a></li>
+				<li><a href="class-Charcoal.View.ViewServiceProvider.html">ViewServiceProvider</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.EngineInterface.html">EngineInterface</a></li>
+				<li><a href="class-Charcoal.View.LoaderInterface.html">LoaderInterface</a></li>
+				<li><a href="class-Charcoal.View.ViewableInterface.html">ViewableInterface</a></li>
+				<li><a href="class-Charcoal.View.ViewInterface.html">ViewInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Charcoal.View.ViewableTrait.html">ViewableTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.View.html" title="Summary of Charcoal\View"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractLoader</h1>
+
+
+	<div class="description">
+	<p>Base template loader.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Charcoal\View\AbstractLoader</span></b>			
+			 implements 
+<span>Psr\Log\LoggerAwareInterface</span>, 
+			
+				<a href="class-Charcoal.View.LoaderInterface.html"><span>Charcoal\View\LoaderInterface</span></a>
+			
+			 uses 
+					Psr\Log\LoggerAwareTrait (not available)
+
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Charcoal.View.Mustache.MustacheLoader.html">Charcoal\View\Mustache\MustacheLoader</a>, 
+			<a href="class-Charcoal.View.Php.PhpLoader.html">Charcoal\View\Php\PhpLoader</a>, 
+			<a href="class-Charcoal.View.Twig.TwigLoader.html">Charcoal\View\Twig\TwigLoader</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.View.html">View</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.View.AbstractLoader.html#15-212" title="Go to source code">Charcoal/View/AbstractLoader.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#34-47" title="Go to source code">__construct</a>( <span>array <var>$data</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Default constructor, if none is provided by the concrete class implementations.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Default constructor, if none is provided by the concrete class implementations.</p>
+
+<h2>Required dependencies</h2>
+
+<ul>
+<li><code>logger</code> A PSR-3 logger</li>
+</ul>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd>The class dependencies map.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="load" id="_load">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_load">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#49-82" title="Go to source code">load</a>( <span>string <var>$ident</var></span> )</code>
+
+		<div class="description short">
+			<p>Load a template content</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Load a template content</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ident</var></dt>
+					<dd>The template ident to load and render.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the dynamic template identifier is not a string.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.View.LoaderInterface.html#_load">Charcoal\View\LoaderInterface::load()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="basePath" id="_basePath">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_basePath">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#84-90" title="Go to source code">basePath</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="paths" id="_paths">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_paths">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#92-99" title="Go to source code">paths</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						FileLoader::path()<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isTemplateMaybeLoaded" id="_isTemplateMaybeLoaded">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isTemplateMaybeLoaded">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#101-111" title="Go to source code">isTemplateMaybeLoaded</a>( <span>string <var>$ident</var></span> )</code>
+
+		<div class="description short">
+			<p>Determine if the template is loaded.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if the template is loaded.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ident</var></dt>
+					<dd>The template or identifier to check.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br><p>Returns TRUE if the given value is most like the template contents instead
+    of a template identifier (file path).</p>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="findTemplateFile" id="_findTemplateFile">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_findTemplateFile">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#113-140" title="Go to source code">findTemplateFile</a>( <span>string <var>$ident</var></span> )</code>
+
+		<div class="description short">
+			<p>Get the template file (full path + filename) to load from an ident.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the template file (full path + filename) to load from an ident.</p>
+
+<p>This method first generates the filename for an identifier and search for it in all of the loader's paths.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ident</var></dt>
+					<dd>The template identifier to load.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null<br>The full path + filename of the found template. Null if nothing was found.
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the template ident is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="filenameFromIdent" id="_filenameFromIdent">
+
+		<td class="attributes"><code>
+			abstract protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_filenameFromIdent">#</a>
+		<code><a href="source-class-Charcoal.View.AbstractLoader.html#142-146" title="Go to source code">filenameFromIdent</a>( <span>string <var>$ident</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ident</var></dt>
+					<dd>The template identifier to convert to a filename.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
