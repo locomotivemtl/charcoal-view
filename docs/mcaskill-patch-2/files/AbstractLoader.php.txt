@@ -107,7 +107,7 @@ abstract class AbstractLoader implements
      */
     protected function isTemplateMaybeLoaded($ident)
     {
-        return strpos($ident, PHP_EOL) !== FALSE;
+        return strpos($ident, PHP_EOL) !== false;
     }
 
     /**
