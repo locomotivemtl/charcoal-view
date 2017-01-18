@@ -26,7 +26,7 @@ abstract class AbstractLoader implements
      *
      * @var array
      */
-    protected static $fileCache = [];
+    protected $fileCache = [];
 
     /**
      * @var string $basePath
@@ -110,8 +110,8 @@ abstract class AbstractLoader implements
     {
         $key = $ident;
 
-        if (isset(static::$fileCache[$key])) {
-            return static::$fileCache[$key];
+        if (isset($this->fileCache[$key])) {
+            return $this->fileCache[$key];
         }
 
         if (!is_string($ident)) {
@@ -125,12 +125,12 @@ abstract class AbstractLoader implements
         foreach ($searchPath as $path) {
             $f = realpath($path).'/'.strtolower($filename);
             if (file_exists($f)) {
-                static::$fileCache[$key] = $f;
+                $this->fileCache[$key] = $f;
                 return $f;
             }
         }
 
-        static::$fileCache[$key] = '';
+        $this->fileCache[$key] = '';
         return null;
     }
 
