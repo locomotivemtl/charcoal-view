@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-843018597"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1048291934"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-843018597" class="accordion-body collapse in">
+            <div id="namespace-1048291934" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-385041400"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1726443546"></a>
                                 <a href="../namespaces/Charcoal.html" style="margin-left: 30px; padding-left: 0">Charcoal</a>
             </div>
-            <div id="namespace-385041400" class="accordion-body collapse ">
+            <div id="namespace-1726443546" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-441582929"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2028620984"></a>
                                 <a href="../namespaces/Charcoal.View.html" style="margin-left: 30px; padding-left: 0">View</a>
             </div>
-            <div id="namespace-441582929" class="accordion-body collapse ">
+            <div id="namespace-2028620984" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-655140315"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1490697462"></a>
                                 <a href="../namespaces/Charcoal.View.Mustache.html" style="margin-left: 30px; padding-left: 0">Mustache</a>
             </div>
-            <div id="namespace-655140315" class="accordion-body collapse ">
+            <div id="namespace-1490697462" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -193,10 +193,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-651813040"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-728950399"></a>
                                 <a href="../namespaces/Charcoal.View.Php.html" style="margin-left: 30px; padding-left: 0">Php</a>
             </div>
-            <div id="namespace-651813040" class="accordion-body collapse ">
+            <div id="namespace-728950399" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -212,10 +212,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1829806400"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1982252117"></a>
                                 <a href="../namespaces/Charcoal.View.Twig.html" style="margin-left: 30px; padding-left: 0">Twig</a>
             </div>
-            <div id="namespace-1829806400" class="accordion-body collapse ">
+            <div id="namespace-1982252117" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -579,7 +579,7 @@
             <article class="method">
                 <h3 class="public ">addJsRequirement()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">addJsRequirement(string  <span class="argument">$js</span>) : void</pre>
+                <pre class="signature" style="margin-right: 54px;">addJsRequirement(string  <span class="argument">$js</span>, \Mustache_LambdaHelper  <span class="argument">$helper = null</span>) : void</pre>
                 <p><em>Enqueue an external JavaScript file.</em></p>
                 <p>Must include <code>&lt;script&gt;</code> surrounding element.</p>
 
@@ -588,7 +588,12 @@
                                                     <tr>
                                 <td>string</td>
                                 <td>$js </td>
-                                <td><p>The JavaScript requirements.</p></td>
+                                <td><p>The JavaScript to add.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Mustache_LambdaHelper</td>
+                                <td>$helper </td>
+                                <td><p>For rendering strings in the current context.</p></td>
                             </tr>
                                             </table>
                 
@@ -708,9 +713,9 @@
             <article class="method">
                 <h3 class="public ">addCssRequirement()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">addCssRequirement(string  <span class="argument">$css</span>) : void</pre>
+                <pre class="signature" style="margin-right: 54px;">addCssRequirement(string  <span class="argument">$css</span>, \Mustache_LambdaHelper  <span class="argument">$helper = null</span>) : void</pre>
                 <p><em>Enqueue an external CSS file.</em></p>
-                <p>Must include <code>&lt;link&gt;</code> surrounding element.</p>
+                <p>Must include <code>&lt;link /&gt;</code> or surrounding <code>&lt;style&gt;</code> element.</p>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -718,6 +723,11 @@
                                 <td>string</td>
                                 <td>$css </td>
                                 <td><p>The CSS requirements.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Mustache_LambdaHelper</td>
+                                <td>$helper </td>
+                                <td><p>For rendering strings in the current context.</p></td>
                             </tr>
                                             </table>
                 
@@ -814,7 +824,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on January 18th, 2017 at 19:38.
+                    on January 30th, 2017 at 23:31.
                 </section>
             </section>
         </section>
