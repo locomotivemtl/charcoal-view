@@ -95,6 +95,24 @@ abstract class AbstractEngine implements
     }
 
     /**
+     * @param string $varName The name of the variable to get template ident from.
+     * @return string
+     */
+    public function dynamicTemplate($varName)
+    {
+        return $this->loader()->dynamicTemplate($varName);
+    }
+
+    /**
+     * @param string $varName The name of the variable to get template ident from.
+     * @return boolean
+     */
+    public function hasDynamicTemplate($varName)
+    {
+        return $this->loader()->hasDynamicTemplate($varName);
+    }
+
+    /**
      * @param string      $varName       The name of the variable to set this template unto.
      * @param string|null $templateIdent The "dynamic template" to set. null to clear.
      * @return void
@@ -102,6 +120,14 @@ abstract class AbstractEngine implements
     public function setDynamicTemplate($varName, $templateIdent)
     {
         $this->loader()->setDynamicTemplate($varName, $templateIdent);
+    }
+
+    /**
+     * @return \Charcoal\View\LoaderRegistryInterface
+     */
+    public function templateRegistry()
+    {
+        return $this->loader()->templateRegistry();
     }
 
     /**
@@ -127,17 +153,6 @@ abstract class AbstractEngine implements
         return $this->cache;
     }
 
-
-    /**
-     * @return LoaderInterface
-     */
-    protected function loader()
-    {
-        return $this->loader;
-    }
-
-
-
     /**
      * @param LoaderInterface $loader A loader instance.
      * @return void
@@ -145,5 +160,13 @@ abstract class AbstractEngine implements
     private function setLoader(LoaderInterface $loader)
     {
         $this->loader = $loader;
+    }
+
+    /**
+     * @return LoaderInterface
+     */
+    protected function loader()
+    {
+        return $this->loader;
     }
 }

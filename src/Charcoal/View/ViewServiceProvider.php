@@ -10,6 +10,7 @@ use Pimple\Container;
 use Parsedown;
 
 // From 'charcoal-view'
+use Charcoal\View\GenericTemplateRegistry;
 use Charcoal\View\GenericView;
 use Charcoal\View\Mustache\MustacheEngine;
 use Charcoal\View\Mustache\MustacheLoader;
@@ -120,13 +121,22 @@ class ViewServiceProvider implements ServiceProviderInterface
     {
         /**
          * @param Container $container A container instance.
+         * @return GenericTemplateRegistry
+         */
+        $container['view/loader/template-registry'] = function () {
+            return new GenericTemplateRegistry();
+        };
+
+        /**
+         * @param Container $container A container instance.
          * @return array The view loader dependencies array.
          */
         $container['view/loader/dependencies'] = function (Container $container) {
             return [
                 'logger'    => $container['logger'],
                 'base_path' => $container['config']['base_path'],
-                'paths'     => $container['view/config']['paths']
+                'paths'     => $container['view/config']['paths'],
+                'registry'  => $container['view/loader/template-registry'],
             ];
         };
 
