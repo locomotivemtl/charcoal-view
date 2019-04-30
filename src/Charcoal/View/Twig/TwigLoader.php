@@ -2,7 +2,10 @@
 
 namespace Charcoal\View\Twig;
 
+use Exception;
+
 // From Twig
+use Twig\Error\LoaderError as TwigLoaderError;
 use Twig\Loader\LoaderInterface as TwigLoaderInterface;
 use Twig\Loader\ExistsLoaderInterface as TwigExistsLoaderInterface;
 use Twig\Loader\SourceContextLoaderInterface as TwigSourceContextLoaderInterface;
@@ -13,7 +16,7 @@ use Charcoal\View\AbstractLoader;
 use Charcoal\View\LoaderInterface;
 
 /**
- * Twig Template Loader
+ * Twig Template Loader Adaptor
  *
  * Finds a Twig template file in a collection of directory paths.
  */
@@ -23,6 +26,27 @@ class TwigLoader extends AbstractLoader implements
     TwigExistsLoaderInterface,
     TwigSourceContextLoaderInterface
 {
+    /**
+     * Handle when a template is not found.
+     *
+     * @param  string $ident The template ident.
+     * @throws Exception If the template is not found.
+     * @return string
+     */
+    public function handleNotFound($ident)
+    {
+        if ($this->silent() === false) {
+            $e = new TwigLoaderError(sprintf('Unknown template: "%s"', $ident));
+            throw new Exception($e->getMessage(), 0, $e);
+        }
+
+        $this->logger->notice(
+            sprintf('Unable to find template "%s"', $ident)
+        );
+
+        return '';
+    }
+
     /**
      * Convert an identifier to a file path.
      *

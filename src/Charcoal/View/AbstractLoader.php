@@ -9,7 +9,9 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 
 // From 'charcoal-view'
+use Charcoal\View\GenericTemplateRegistry;
 use Charcoal\View\LoaderInterface;
+use Charcoal\View\LoaderRegistryInterface;
 
 /**
  * Base Template Loader
@@ -33,9 +35,14 @@ abstract class AbstractLoader implements
     private $paths = [];
 
     /**
-     * @var array
+     * @var boolean
      */
-    private $dynamicTemplates = [];
+    private $silent = true;
+
+    /**
+     * @var LoaderRegistryInterface
+     */
+    private $templateRegistry;
 
     /**
      * Default constructor, if none is provided by the concrete class implementations.
@@ -50,43 +57,38 @@ abstract class AbstractLoader implements
         $this->setLogger($data['logger']);
         $this->setBasePath($data['base_path']);
         $this->setPaths($data['paths']);
+
+        if (!isset($data['registry'])) {
+            $data['registry'] = new GenericTemplateRegistry();
+        }
+
+        $this->setTemplateRegistry($data['registry']);
+
+        if (isset($data['silent'])) {
+            $this->setSilent($data['silent']);
+        }
     }
 
     /**
      * Load a template content
      *
-     * @deprecated $GLOBALS['widget_template']
-     *
      * @param  string $ident The template ident to load and render.
-     * @throws InvalidArgumentException If the dynamic template identifier is not a string.
      * @return string
      */
     public function load($ident)
     {
-        // Handle dynamic template
-        if (substr($ident, 0, 1) === '$') {
-            $tryLegacy = ($ident === '$widget_template');
-
-            $ident = $this->dynamicTemplate(substr($ident, 1));
-
-            // Legacy dynamic template hack
-            if ($tryLegacy) {
-                $ident = empty($GLOBALS['widget_template']) ? $ident : $GLOBALS['widget_template'];
-                $this->logger->warning(sprintf(
-                    '%s is deprecated in favor of %s: %s',
-                    '$GLOBALS[\'widget_template\']',
-                    'setDynamicTemplate()',
-                    $ident
-                ));
-                if (!is_string($ident)) {
-                    throw new InvalidArgumentException(
-                        'Dynamic template ident (from "$widget_template") must be a string'
-                    );
-                }
-            }
+        // Bail early
+        if ($ident === null || $ident === '') {
+            return (string)$ident;
         }
 
-        $file = $this->findTemplateFile($ident);
+        // Handle dynamic templates
+        $resolved = $this->resolve($ident);
+        if ($resolved === null || $resolved === '') {
+            return $ident;
+        }
+
+        $file = $this->findTemplateFile($resolved);
         if ($file === null || $file === '') {
             return $ident;
         }
@@ -95,95 +97,116 @@ abstract class AbstractLoader implements
     }
 
     /**
-     * @param  string $varName The name of the variable to get template ident from.
-     * @throws InvalidArgumentException If the var name is not a string.
-     * @return string
+     * Converts a dynamic template identifer into a template path.
+     *
+     * @param  string $ident The template key.
+     * @throws InvalidArgumentException If the legacy dynamic template is empty.
+     * @return string|null The template path or the template key.
      */
-    public function dynamicTemplate($varName)
+    public function resolve($ident)
     {
-        if (!is_string($varName)) {
-            throw new InvalidArgumentException(
-                'Can not get dynamic template: var name is not a string.'
-            );
+        if ($this->templateRegistry === null) {
+            return $ident;
         }
 
-        if (!isset($this->dynamicTemplates[$varName])) {
-            return '';
+        if (substr($ident, 0, 1) !== '$') {
+            return $ident;
         }
 
-        return $this->dynamicTemplates[$varName];
+        /** @deprecated 0.3 */
+        if ($ident === '$widget_template') {
+            if (empty($GLOBALS['widget_template'])) {
+                if ($this->silent() === false) {
+                    throw new InvalidArgumentException(
+                        sprintf('Dynamic template "%s" does not contain a view.', $ident)
+                    );
+                }
+
+                $this->logger->warning(sprintf(
+                    '%s is deprecated in favor of %s::setDynamicTemplate()',
+                    '$GLOBALS[\'widget_template\']',
+                    get_called_class()
+                ));
+
+                return '';
+            }
+
+            $ident = $GLOBALS['widget_template'];
+
+            $this->logger->warning(sprintf(
+                '%s ("%s") is deprecated in favor of %s::setDynamicTemplate()',
+                '$GLOBALS[\'widget_template\']',
+                $ident,
+                get_called_class()
+            ));
+
+            return $ident;
+        }
+
+        return $this->templateRegistry()->get(substr($ident, 1));
     }
 
     /**
-     * @deprecated $GLOBALS['widget_template']
-     *
+     * @param  string $varName The name of the variable to get template ident from.
+     * @return string|null Returns the template ident or NULL if no template found.
+     */
+    public function dynamicTemplate($varName)
+    {
+        return $this->templateRegistry()->get($varName);
+    }
+
+    /**
+     * @param  string $varName The name of the variable to get template ident from.
+     * @return boolean
+     */
+    public function hasDynamicTemplate($varName)
+    {
+        return $this->templateRegistry()->has($varName);
+    }
+
+    /**
      * @param  string      $varName       The name of the variable to set this template unto.
      * @param  string|null $templateIdent The "dynamic template" to set or NULL to clear.
-     * @throws InvalidArgumentException If var name is not a string
-     *     or if the template is not a string (and not null).
      * @return void
      */
     public function setDynamicTemplate($varName, $templateIdent)
     {
-        if (!is_string($varName)) {
-            throw new InvalidArgumentException(
-                'Can not set dynamic template: var name is not a string.'
-            );
-        }
-
         if ($templateIdent === null) {
             $this->removeDynamicTemplate($varName);
             return;
         }
 
-        if (!is_string($templateIdent)) {
-            throw new InvalidArgumentException(
-                'Can not set dynamic template. Must be a a string, or null.'
-            );
-        }
-
-        // Legacy dynamic template hack
+        /** @deprecated 0.3 */
         if ($varName === 'widget_template') {
             $GLOBALS['widget_template'] = $templateIdent;
         }
 
-        $this->dynamicTemplates[$varName] = $templateIdent;
+        $this->templateRegistry()->set($varName, $templateIdent);
     }
 
     /**
-     * @deprecated $GLOBALS['widget_template']
-     *
      * @param  string $varName The name of the variable to remove.
-     * @throws InvalidArgumentException If var name is not a string.
      * @return void
      */
     public function removeDynamicTemplate($varName)
     {
-        if (!is_string($varName)) {
-            throw new InvalidArgumentException(
-                'Can not set dynamic template: var name is not a string.'
-            );
-        }
-
-        // Legacy dynamic template hack
+        /** @deprecated 0.3 */
         if ($varName === 'widget_template') {
             $GLOBALS['widget_template'] = null;
         }
 
-        unset($this->dynamicTemplates[$varName]);
+        $this->templateRegistry()->remove($varName);
     }
 
     /**
-     * @deprecated $GLOBALS['widget_template']
-     *
      * @return void
      */
     public function clearDynamicTemplates()
     {
-        // Legacy dynamic template hack
+        /** @deprecated 0.3 */
         $GLOBALS['widget_template'] = null;
 
-        $this->dynamicTemplates = [];
+        $this->templateRegistry()->clear();
     }
 
     /**
@@ -268,6 +291,44 @@ abstract class AbstractLoader implements
     }
 
     /**
+     * Get error reporting.
+     *
+     * @return boolean Whether to be quiet when an error occurs.
+     */
+    public function silent()
+    {
+        return $this->silent;
+    }
+
+    /**
+     * Set error reporting.
+     *
+     * @param  boolean $silent Whether to be quiet when an error occurs.
+     * @return void
+     */
+    private function setSilent($silent)
+    {
+        $this->silent = (bool)$silent;
+    }
+
+    /**
+     * @return LoaderRegistryInterface
+     */
+    public function templateRegistry()
+    {
+        return $this->templateRegistry;
+    }
+
+    /**
+     * @param  LoaderRegistryInterface $registry A loader registry instance.
+     * @return void
+     */
+    private function setTemplateRegistry(LoaderRegistryInterface $registry)
+    {
+        $this->templateRegistry = $registry;
+    }
+
+    /**
      * Get the template file (full path + filename) to load from an ident.
      *
      * This method first generates the filename for an identifier and search for it in all of the loader's paths.
@@ -302,4 +363,13 @@ abstract class AbstractLoader implements
      * @return string
      */
     abstract protected function filenameFromIdent($ident);
+
+    /**
+     * Handle when a template is not found.
+     *
+     * @param  string $ident The template ident.
+     * @throws \Exception If the template is not found.
+     * @return string
+     */
+    abstract protected function handleNotFound($ident);
 }

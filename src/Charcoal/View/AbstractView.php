@@ -90,6 +90,24 @@ abstract class AbstractView implements
     }
 
     /**
+     * @param string $varName The name of the variable to get template ident from.
+     * @return string
+     */
+    public function dynamicTemplate($varName)
+    {
+        return $this->engine()->dynamicTemplate($varName);
+    }
+
+    /**
+     * @param string $varName The name of the variable to get template ident from.
+     * @return boolean
+     */
+    public function hasDynamicTemplate($varName)
+    {
+        return $this->engine()->hasDynamicTemplate($varName);
+    }
+
+    /**
      * @param string      $varName       The name of the variable to set this template unto.
      * @param string|null $templateIdent The "dynamic template" to set. null to clear.
      * @return void
@@ -97,6 +115,14 @@ abstract class AbstractView implements
     public function setDynamicTemplate($varName, $templateIdent)
     {
         $this->engine()->setDynamicTemplate($varName, $templateIdent);
+    }
+
+    /**
+     * @return \Charcoal\View\LoaderRegistryInterface
+     */
+    public function templateRegistry()
+    {
+        return $this->engine()->templateRegistry();
     }
 
     /**

@@ -10,6 +10,7 @@ use Psr\Log\NullLogger;
 
 // From 'charcoal-view'
 use Charcoal\View\AbstractLoader;
+use Charcoal\View\GenericTemplateRegistry;
 use Charcoal\Tests\AbstractTestCase;
 
 /**
@@ -69,49 +70,10 @@ class AbstractLoaderTest extends AbstractTestCase
     /**
      * @return void
      */
-    public function testDynamicTemplateInvalidVarName()
-    {
-        $this->expectException('\InvalidArgumentException');
-        $this->obj->dynamicTemplate(null);
-    }
-
-    /**
-     * @return void
-     */
-    public function testSetDynamicTemplateInvalidVarName()
-    {
-        $this->expectException('\InvalidArgumentException');
-        $this->obj->setDynamicTemplate(null, 'foo');
-    }
-
-    /**
-     * @return void
-     */
     public function testSetDynamicTemplate()
     {
         $this->assertNull($this->obj->setDynamicTemplate('dynamic', 'foo'));
         $this->assertEquals('foo', $this->obj->dynamicTemplate('dynamic'));
-    }
-
-    /**
-     * @return void
-     */
-    public function testSetDynamicTemplateInvalidTemplateIdent()
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->obj->setDynamicTemplate('foo', []);
-    }
-
-    /**
-     * @return void
-     */
-    public function testRemoveDynamicTemplate()
-    {
-        $this->obj->setDynamicTemplate('foo', null);
-        $this->obj->removeDynamicTemplate('foo');
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->obj->removeDynamicTemplate(null);
     }
 
     /**
