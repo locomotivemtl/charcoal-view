@@ -10,7 +10,6 @@ use Pimple\Container;
 use Parsedown;
 
 // From 'charcoal-view'
-use Charcoal\View\GenericView;
 use Charcoal\View\Mustache\MustacheEngine;
 use Charcoal\View\Mustache\MustacheLoader;
 use Charcoal\View\Mustache\AssetsHelpers;
@@ -20,9 +19,6 @@ use Charcoal\View\Php\PhpEngine;
 use Charcoal\View\Php\PhpLoader;
 use Charcoal\View\Twig\TwigEngine;
 use Charcoal\View\Twig\TwigLoader;
-use Charcoal\View\Renderer;
-use Charcoal\View\ViewConfig;
-use Charcoal\View\ViewInterface;
 
 /**
  * View Service Provider
@@ -87,12 +83,13 @@ class ViewServiceProvider implements ServiceProviderInterface
 
             if (isset($container['module/classes'])) {
                 $extraPaths = [];
-                $basePath   = $appConfig['base_path'];
+                $basePath   = rtrim($appConfig['base_path'], '/');
                 $modules    = $container['module/classes'];
                 foreach ($modules as $module) {
                     if (defined(sprintf('%s::APP_CONFIG', $module))) {
-                        $configPath = $module::APP_CONFIG;
-                        $configPath = rtrim($basePath, '/').'/'.ltrim($configPath, '/');
+                        $configPath = ltrim($module::APP_CONFIG, '/');
+                        $configPath = $basePath.'/'.$configPath;
+
                         $configData = $viewConfig->loadFile($configPath);
                         $extraPaths = array_merge(
                             $extraPaths,
@@ -250,7 +247,7 @@ class ViewServiceProvider implements ServiceProviderInterface
          */
         $container['view/mustache/helpers/translator'] = function (Container $container) {
             return new TranslatorHelpers([
-                'translator' => $container['translator']
+                'translator' => (isset($container['translater']) ? $container['translator'] : null)
             ]);
         };
 
