@@ -46,9 +46,7 @@ class RendererTest extends AbstractTestCase
             'engine' => $engine,
         ]);
 
-        $this->obj = new Renderer([
-            'view' => $view,
-        ]);
+        $this->obj = new Renderer($view);
     }
 
     /**

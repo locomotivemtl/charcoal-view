@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 use Charcoal\View\ViewInterface;
 
 /**
- * Provides a PSR-7 renderer that uses a Charcoal View.
+ * Provides a PSR-7 renderer service that uses a Charcoal View.
  *
  * A "PSR-7" renderer is a service that renders a template identifier inside a HTTP Response
  *
@@ -24,11 +24,11 @@ class Renderer
     private $view;
 
     /**
-     * @param array $data The constructor dependencies.
+     * @param ViewInterface $view The charcoal view abstraction layer user to render the template.
      */
-    public function __construct(array $data)
+    public function __construct(ViewInterface $view)
     {
-        $this->setView($data['view']);
+        $this->view = $view;
     }
 
     /**
@@ -42,15 +42,5 @@ class Renderer
         $rendered = $this->view->render($templateIdent, $context);
         $response->getBody()->write($rendered);
         return $response;
-    }
-
-    /**
-     * @param ViewInterface $view The view instance to use.
-     * @return Renderer Chainable
-     */
-    private function setView(ViewInterface $view)
-    {
-        $this->view = $view;
-        return $this;
     }
 }

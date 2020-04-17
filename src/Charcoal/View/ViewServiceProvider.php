@@ -331,9 +331,7 @@ class ViewServiceProvider implements ServiceProviderInterface
          * @return Renderer
          */
         $container['view/renderer'] = function (Container $container) {
-            return new Renderer([
-                'view' => $container['view']
-            ]);
+            return new Renderer($container['view']);
         };
 
         /**
