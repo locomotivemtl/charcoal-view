@@ -31,8 +31,6 @@ use Charcoal\View\ViewInterface;
  *
  * - `config`
  *   - The global / base app config (`ConfigInterface`).
- * - `logger`
- *   - A PSR-3 loger.
  *
  * ## Services
  *
@@ -124,7 +122,6 @@ class ViewServiceProvider implements ServiceProviderInterface
          */
         $container['view/loader/dependencies'] = function (Container $container) {
             return [
-                'logger'    => $container['logger'],
                 'base_path' => $container['config']['base_path'],
                 'paths'     => $container['view/config']['paths']
             ];
@@ -167,7 +164,6 @@ class ViewServiceProvider implements ServiceProviderInterface
          */
         $container['view/engine/mustache'] = function (Container $container) {
             return new MustacheEngine([
-                'logger'    => $container['logger'],
                 'loader'    => $container['view/loader/mustache'],
                 'helpers'   => $container['view/mustache/helpers'],
                 'cache'     => $container['view/mustache/cache']
@@ -180,7 +176,6 @@ class ViewServiceProvider implements ServiceProviderInterface
          */
         $container['view/engine/php'] = function (Container $container) {
             return new PhpEngine([
-                'logger'    => $container['logger'],
                 'loader'    => $container['view/loader/php']
             ]);
         };
@@ -191,7 +186,6 @@ class ViewServiceProvider implements ServiceProviderInterface
          */
         $container['view/engine/twig'] = function (Container $container) {
             return new TwigEngine([
-                'logger'    => $container['logger'],
                 'loader'    => $container['view/loader/twig'],
                 'cache'     => $container['view/twig/cache']
             ]);
@@ -252,7 +246,7 @@ class ViewServiceProvider implements ServiceProviderInterface
         /**
          * Translation helpers for Mustache.
          *
-         * @return TranslatorHelpers
+         * @return TranslatorHelpers|null
          */
         $container['view/mustache/helpers/translator'] = function (Container $container) {
             return new TranslatorHelpers([
@@ -318,7 +312,6 @@ class ViewServiceProvider implements ServiceProviderInterface
          */
         $container['view'] = function (Container $container) {
             return new GenericView([
-                'logger' => $container['logger'],
                 'engine' => $container['view/engine']
             ]);
         };
