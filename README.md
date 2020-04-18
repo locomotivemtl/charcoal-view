@@ -80,21 +80,14 @@ use Charcoal\View\Mustache\MustacheLoader;
 use Charcoal\View\Mustache\MustacheEngine;
 use Charcoal\View\GenericView;
 
-$loader = new MustacheLoader([
-    'base_path' => __DIR__,
-    'paths'     => [
-        'templates',
-        'views
-    ]
+$loader = new MustacheLoader(__DIR__, [
+   'templates',
+    'views'
 ]);
 
-$engine = new MustacheEngine([
-    'loader' => $loader
-]);
+$engine = new MustacheEngine($loader);
 
-$view = new GenericView([
-    'engine'  => $engine
-]);
+$view = new GenericView($engine);
 
 echo $view->render('foo/bar/template', $context);
 
