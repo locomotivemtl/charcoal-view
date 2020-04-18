@@ -21,10 +21,7 @@ class PhpLoaderTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $this->obj = new PhpLoader([
-            'base_path' => __DIR__,
-            'paths'     => [ 'templates' ],
-        ]);
+        $this->obj = new PhpLoader(__DIR__, [ 'templates' ]);
     }
 
     /**

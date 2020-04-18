@@ -7,6 +7,7 @@ use Twig_Environment;
 
 // From 'charcoal-view'
 use Charcoal\View\AbstractEngine;
+use Charcoal\View\LoaderInterface;
 
 /**
  *
@@ -19,6 +20,24 @@ class TwigEngine extends AbstractEngine
      * @var Twig_Environment $twig
      */
     private $twig;
+
+    /**
+     * Build the object with an array of dependencies.
+     *
+     * ## Required parameters:
+     * - `loader` a Loader object, to load templates.
+     *
+     * @param LoaderInterface $loader Twig template loader.
+     * @param string|null     $cache  The cache path.
+     */
+    public function __construct(LoaderInterface $loader, $cache = null)
+    {
+        $this->setLoader($loader);
+
+        if ($cache !== null) {
+            $this->setCache($cache);
+        }
+    }
 
     /**
      * @return string

@@ -42,23 +42,6 @@ class TranslatorHelpersTest extends AbstractTestCase
         $this->translator = $this->createTranslator();
         $this->mustache   = $this->createMustacheEngine($this->translator);
     }
-
-    /**
-     * @return void
-     */
-    public function testTransWithoutTranslator()
-    {
-        $this->mustache = $this->createMustacheEngine();
-
-        $template = $this->mustache->loadTemplate('{{# _t.en }}greet.name{{/ _t.en }}');
-        $output   = $template->render([
-            'name' => 'World',
-        ]);
-        $expected = trim('greet.name');
-
-        $this->assertEquals($expected, $output);
-    }
-
     /**
      * @return void
      */
@@ -192,9 +175,7 @@ class TranslatorHelpersTest extends AbstractTestCase
      */
     public function createMustacheEngine($translator = null)
     {
-        $helper   = new TranslatorHelpers([
-            'translator' => $translator,
-        ]);
+        $helper   = new TranslatorHelpers($translator);
         $mustache = new MustacheEngine([
             'helpers' => $helper->toArray(),
         ]);

@@ -26,10 +26,10 @@ class AbstractLoaderTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $this->obj = $this->getMockForAbstractClass(AbstractLoader::class, [[
-            'base_path' => __DIR__,
-            'paths'     => [ 'Mustache/templates' ],
-        ]]);
+        $this->obj = $this->getMockForAbstractClass(AbstractLoader::class, [
+            __DIR__,
+            [ 'Mustache/templates' ]
+        ]);
     }
 
     /**
@@ -39,10 +39,10 @@ class AbstractLoaderTest extends AbstractTestCase
     {
         $this->expectException(Exception::class);
 
-        $loader = $this->getMockForAbstractClass(AbstractLoader::class, [[
-            'base_path' => false,
-            'paths'     => [ 'Mustache/templates' ],
-        ]]);
+        $loader = $this->getMockForAbstractClass(AbstractLoader::class, [
+            false,
+            [ 'Mustache/templates' ]
+        ]);
     }
 
     /**
@@ -52,10 +52,10 @@ class AbstractLoaderTest extends AbstractTestCase
     {
         $this->expectException('\Exception');
 
-        $loader = $this->getMockForAbstractClass(AbstractLoader::class, [[
-            'base_path' => __DIR__,
-            'paths'     => [ false ],
-        ]]);
+        $loader = $this->getMockForAbstractClass(AbstractLoader::class, [
+            __DIR__,
+            [ false ],
+        ]);
     }
 
     /**

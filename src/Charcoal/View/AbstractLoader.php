@@ -4,9 +4,6 @@ namespace Charcoal\View;
 
 use InvalidArgumentException;
 
-// From 'charcoal-view'
-use Charcoal\View\LoaderInterface;
-
 /**
  * Base Template Loader
  *
@@ -14,7 +11,6 @@ use Charcoal\View\LoaderInterface;
  */
 abstract class AbstractLoader implements LoaderInterface
 {
-
     /**
      * @var string
      */
@@ -41,12 +37,13 @@ abstract class AbstractLoader implements LoaderInterface
      * Default constructor, if none is provided by the concrete class implementations.
      *
      *
-     * @param array $data The class dependencies map.
+     * @param string   $basePath The base path of the application, from where to serach for templates.
+     * @param string[] $paths    The various paths to search templates.
      */
-    public function __construct(array $data = null)
+    public function __construct($basePath, array $paths)
     {
-        $this->setBasePath($data['base_path']);
-        $this->setPaths($data['paths']);
+        $this->setBasePath($basePath);
+        $this->setPaths($paths);
     }
 
     /**

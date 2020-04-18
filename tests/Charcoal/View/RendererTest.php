@@ -28,16 +28,9 @@ class RendererTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $loader = new MustacheLoader([
-            'base_path' => __DIR__,
-            'paths'     => [ 'Mustache/templates' ],
-        ]);
-        $engine = new MustacheEngine([
-            'loader' => $loader,
-        ]);
-        $view = new GenericView([
-            'engine' => $engine,
-        ]);
+        $loader = new MustacheLoader(__DIR__, [ 'Mustache/templates' ]);
+        $engine = new MustacheEngine($loader);
+        $view = new GenericView($engine);
 
         $this->obj = new Renderer($view);
     }

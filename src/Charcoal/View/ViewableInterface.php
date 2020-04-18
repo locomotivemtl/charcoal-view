@@ -34,7 +34,7 @@ interface ViewableInterface
     /**
      * Set the renderable view.
      *
-     * @param ViewInterface|array $view The view instance to use to render.
+     * @param ViewInterface $view The view instance to use to render.
      * @return ViewableInterface Chainable
      */
     public function setView(ViewInterface $view);

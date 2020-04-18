@@ -3,6 +3,8 @@
 namespace Charcoal\Tests\View;
 
 // From Slim
+use Charcoal\Translator\LocalesManager;
+use Charcoal\Translator\Translator;
 use Slim\Http\Response;
 
 // From Pimple
@@ -11,6 +13,8 @@ use Pimple\Container;
 // From 'charcoal-view'
 use Charcoal\View\ViewServiceProvider;
 use Charcoal\Tests\AbstractTestCase;
+use Symfony\Component\Translation\Loader\ArrayLoader;
+use Symfony\Component\Translation\MessageSelector;
 
 /**
  *
@@ -87,7 +91,7 @@ class ViewServiceProviderTest extends AbstractTestCase
     public function testProviderMustache()
     {
         $container = new Container([
-            'translator' => null,
+            'translator' => $this->createTranslator(),
             'config'     => [
                 'base_path' => __DIR__,
                 'view'      => [
@@ -130,5 +134,37 @@ class ViewServiceProviderTest extends AbstractTestCase
         $response = new Response();
         $ret = $container['view/renderer']->render($response, 'foo', [ 'foo' => 'Baz' ]);
         $this->assertEquals('Hello Baz', trim((string)$ret->getBody()));
+    }
+
+    /**
+     * @return Translator
+     */
+    public function createTranslator()
+    {
+        $translator = new Translator([
+            'locale'            => 'en',
+            'cache_dir'         => null,
+            'debug'             => false,
+            'message_selector'  => new MessageSelector(),
+            'manager'           => new LocalesManager([
+                'locales' => [
+                    'en' => [
+                        'locale' => 'en_US.UTF8',
+                    ],
+                    'fr' => [
+                        'locale' => 'fr_FR.UTF8',
+                    ]
+                ],
+                'default_language'   => 'en',
+                'fallback_languages' => [ 'en' ],
+
+            ]),
+        ]);
+
+        // phpcs:disable Squiz.Objects.ObjectInstantiation.NotAssigned
+        $translator->addLoader('array', new ArrayLoader());
+        // phpcs:enable
+
+        return $translator;
     }
 }

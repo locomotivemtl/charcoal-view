@@ -56,22 +56,9 @@ class TranslatorHelpers implements HelpersInterface
     private $domain;
 
     /**
-     * @param array $data Class Dependencies.
+     * @param Translator $translator The Charcoal Translator service.
      */
-    public function __construct(array $data = null)
-    {
-        if (isset($data['translator'])) {
-            $this->setTranslator($data['translator']);
-        }
-    }
-
-    /**
-     * Set the translator service.
-     *
-     * @param  Translator $translator The Translator service.
-     * @return void
-     */
-    protected function setTranslator(Translator $translator)
+    public function __construct(Translator $translator)
     {
         $this->translator = $translator;
     }

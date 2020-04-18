@@ -115,21 +115,10 @@ class ViewServiceProvider implements ServiceProviderInterface
     {
         /**
          * @param Container $container A container instance.
-         * @return array The view loader dependencies array.
-         */
-        $container['view/loader/dependencies'] = function (Container $container) {
-            return [
-                'base_path' => $container['config']['base_path'],
-                'paths'     => $container['view/config']['paths']
-            ];
-        };
-
-        /**
-         * @param Container $container A container instance.
          * @return MustacheLoader
          */
         $container['view/loader/mustache'] = function (Container $container) {
-            return new MustacheLoader($container['view/loader/dependencies']);
+            return new MustacheLoader($container['config']['base_path'], $container['view/config']['paths']);
         };
 
         /**
@@ -137,7 +126,7 @@ class ViewServiceProvider implements ServiceProviderInterface
          * @return PhpLoader
          */
         $container['view/loader/php'] = function (Container $container) {
-            return new PhpLoader($container['view/loader/dependencies']);
+            return new PhpLoader($container['config']['base_path'], $container['view/config']['paths']);
         };
 
         /**
@@ -145,7 +134,7 @@ class ViewServiceProvider implements ServiceProviderInterface
          * @return TwigLoader
          */
         $container['view/loader/twig'] = function (Container $container) {
-            return new TwigLoader($container['view/loader/dependencies']);
+            return new TwigLoader($container['config']['base_path'], $container['view/config']['paths']);
         };
     }
 
@@ -160,11 +149,11 @@ class ViewServiceProvider implements ServiceProviderInterface
          * @return MustacheEngine
          */
         $container['view/engine/mustache'] = function (Container $container) {
-            return new MustacheEngine([
-                'loader'    => $container['view/loader/mustache'],
-                'helpers'   => $container['view/mustache/helpers'],
-                'cache'     => $container['view/mustache/cache']
-            ]);
+            return new MustacheEngine(
+                $container['view/loader/mustache'],
+                $container['view/mustache/cache'],
+                $container['view/mustache/helpers']
+            );
         };
 
         /**
@@ -172,9 +161,7 @@ class ViewServiceProvider implements ServiceProviderInterface
          * @return PhpEngine
          */
         $container['view/engine/php'] = function (Container $container) {
-            return new PhpEngine([
-                'loader'    => $container['view/loader/php']
-            ]);
+            return new PhpEngine($container['view/loader/php']);
         };
 
         /**
@@ -182,10 +169,7 @@ class ViewServiceProvider implements ServiceProviderInterface
          * @return TwigEngine
          */
         $container['view/engine/twig'] = function (Container $container) {
-            return new TwigEngine([
-                'loader'    => $container['view/loader/twig'],
-                'cache'     => $container['view/twig/cache']
-            ]);
+            return new TwigEngine($container['view/loader/twig'], $container['view/twig/cache']);
         };
 
         /**
@@ -245,10 +229,12 @@ class ViewServiceProvider implements ServiceProviderInterface
          *
          * @return TranslatorHelpers|null
          */
+
         $container['view/mustache/helpers/translator'] = function (Container $container) {
-            return new TranslatorHelpers([
-                'translator' => (isset($container['translater']) ? $container['translator'] : null)
-            ]);
+            if (!isset($container['translator'])) {
+                return null;
+            }
+            return new TranslatorHelpers($container['translator']);
         };
 
         /**
@@ -257,9 +243,7 @@ class ViewServiceProvider implements ServiceProviderInterface
          * @return MarkdownHelpers
          */
         $container['view/mustache/helpers/markdown'] = function (Container $container) {
-            return new MarkdownHelpers([
-                'parsedown' => $container['view/parsedown']
-            ]);
+            return new MarkdownHelpers($container['view/parsedown']);
         };
 
         /**
@@ -273,7 +257,7 @@ class ViewServiceProvider implements ServiceProviderInterface
             return array_merge(
                 $helpers,
                 $container['view/mustache/helpers/assets']->toArray(),
-                $container['view/mustache/helpers/translator']->toArray(),
+                (($container['view/mustache/helpers/translator']) ? $container['view/mustache/helpers/translator']->toArray() : []),
                 $container['view/mustache/helpers/markdown']->toArray()
             );
         });
@@ -286,6 +270,8 @@ class ViewServiceProvider implements ServiceProviderInterface
     protected function registerTwigTemplatingServices(Container $container)
     {
         /**
+         * Holds the value (string) of the twig cache path, or null.
+         *
          * @param  Container $container A container instance.
          * @return string|null
          */
@@ -302,15 +288,13 @@ class ViewServiceProvider implements ServiceProviderInterface
     protected function registerViewServices(Container $container)
     {
         /**
-         * The default view instance.
+         * The default view instance
          *
          * @param Container $container A container instance.
          * @return ViewInterface
          */
         $container['view'] = function (Container $container) {
-            return new GenericView([
-                'engine' => $container['view/engine']
-            ]);
+            return new GenericView($container['view/engine']);
         };
 
         /**

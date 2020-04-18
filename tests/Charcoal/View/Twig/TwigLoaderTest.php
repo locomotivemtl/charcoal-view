@@ -26,10 +26,7 @@ class TwigLoaderTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $this->obj = new TwigLoader([
-            'base_path' => __DIR__,
-            'paths'     => [ 'templates' ],
-        ]);
+        $this->obj = new TwigLoader(__DIR__, [ 'templates' ]);
     }
 
     /**

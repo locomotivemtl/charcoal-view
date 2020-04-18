@@ -31,16 +31,9 @@ class ViewableTraitTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $loader = new MustacheLoader([
-            'base_path' => __DIR__,
-            'paths'     => [ 'Mustache/templates' ],
-        ]);
-        $engine = new MustacheEngine([
-            'loader'    => $loader,
-        ]);
-        $genericView = new GenericView([
-            'engine'    => $engine,
-        ]);
+        $loader = new MustacheLoader(__DIR__, [ 'Mustache/templates' ]);
+        $engine = new MustacheEngine($loader, null, null);
+        $genericView = new GenericView($engine);
 
         $mock = $this->getMockForTrait(MockTrait::class);
 

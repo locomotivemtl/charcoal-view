@@ -4,12 +4,25 @@ namespace Charcoal\View\Php;
 
 // From 'charcoal-view'
 use Charcoal\View\AbstractEngine;
+use Charcoal\View\LoaderInterface;
 
 /**
  * PHP view rendering engine
  */
 class PhpEngine extends AbstractEngine
 {
+    /**
+     * Build the object with an array of dependencies.
+     *
+     * ## Required parameters:
+     * - `loader` a Loader object, to load templates.
+     *
+     * @param LoaderInterface $loader Engine dependencie.
+     */
+    public function __construct(LoaderInterface $loader)
+    {
+        $this->setLoader($loader);
+    }
     /**
      * @return string
      */

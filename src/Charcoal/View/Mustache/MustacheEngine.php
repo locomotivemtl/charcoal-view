@@ -11,6 +11,7 @@ use Mustache_Engine;
 
 // From 'charcoal-view'
 use Charcoal\View\AbstractEngine;
+use Charcoal\View\LoaderInterface;
 
 /**
  * Mustache view rendering engine.
@@ -34,25 +35,34 @@ class MustacheEngine extends AbstractEngine
     private $mustache;
 
     /**
+     * Build the object with an array of dependencies.
+     *
+     * ## Required parameters:
+     * - `loader` a Loader object, to load templates.
+     *
+     * @param LoaderInterface $loader  Loader service used to load templates.
+     * @param string|null     $cache   Cache path.
+     * @param array|null      $helpers Mustache helpers that will be passed on the engine.
+     */
+    public function __construct(LoaderInterface $loader, $cache = null, array $helpers = null)
+    {
+        $this->setLoader($loader);
+
+        if ($cache !== null) {
+            $this->setCache($cache);
+        }
+
+        if ($helpers !== null) {
+            $this->setHelpers($helpers);
+        }
+    }
+
+    /**
      * @return string
      */
     public function type()
     {
         return 'mustache';
-    }
-
-    /**
-     * Build the Mustache Engine with an array of dependencies.
-     *
-     * @param array $data Engine dependencie.
-     */
-    public function __construct(array $data)
-    {
-        parent::__construct($data);
-
-        if (isset($data['helpers'])) {
-            $this->setHelpers($data['helpers']);
-        }
     }
 
     /**

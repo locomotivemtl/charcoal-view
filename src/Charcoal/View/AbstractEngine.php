@@ -11,7 +11,7 @@ use Charcoal\View\LoaderInterface;
  *
  * View Engines are comprised of 2 things:
  * - A template loader, wich is a `LoaderInterfaceObject`
- *   - Set with `set_loader()` / Get with `loader()`
+ *   - Set on constructor / Get with `loader()`
  *   - Provides `loadtemplate()` method
  * - A `render()` method, which takes a $template and a $context arguments
  *
@@ -30,23 +30,6 @@ abstract class AbstractEngine implements EngineInterface
      * @var mixed
      */
     private $cache;
-
-    /**
-     * Build the object with an array of dependencies.
-     *
-     * ## Required parameters:
-     * - `loader` a Loader object, to load templates.
-     *
-     * @param array $data Engine dependencie.
-     */
-    public function __construct(array $data)
-    {
-        $this->setLoader($data['loader']);
-
-        if (array_key_exists('cache', $data)) {
-            $this->setCache($data['cache']);
-        }
-    }
 
     /**
      * @return string
@@ -125,14 +108,12 @@ abstract class AbstractEngine implements EngineInterface
     {
         return $this->loader;
     }
-
-
-
+    
     /**
      * @param LoaderInterface $loader A loader instance.
      * @return void
      */
-    private function setLoader(LoaderInterface $loader)
+    protected function setLoader(LoaderInterface $loader)
     {
         $this->loader = $loader;
     }

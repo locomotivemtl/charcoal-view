@@ -21,11 +21,11 @@ class MarkdownHelpers implements HelpersInterface
     private $parsedown;
 
     /**
-     * @param array $data Class Dependencies.
+     * @param Parsedown $parsedown The parswdown service to render markdown text.
      */
-    public function __construct(array $data)
+    public function __construct(Parsedown $parsedown)
     {
-        $this->setParsedown($data['parsedown']);
+        $this->parsedown = $parsedown;
     }
 
     /**
@@ -53,16 +53,5 @@ class MarkdownHelpers implements HelpersInterface
             $text = $helper->render($text);
         }
         return $this->parsedown->text($text);
-    }
-
-    /**
-     * Set the Markdown parser.
-     *
-     * @param  Parsedown $parser Thar Markdown parser.
-     * @return void
-     */
-    private function setParsedown(Parsedown $parser)
-    {
-        $this->parsedown = $parser;
     }
 }

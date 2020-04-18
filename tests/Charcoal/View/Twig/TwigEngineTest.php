@@ -22,14 +22,8 @@ class TwigEngineTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $loader = new TwigLoader([
-            'base_path' => __DIR__,
-            'paths'     => [ 'templates' ],
-        ]);
-        $this->obj = new TwigEngine([
-            'loader' => $loader,
-            'cache'  => null,
-        ]);
+        $loader = new TwigLoader(__DIR__, [ 'templates' ]);
+        $this->obj = new TwigEngine($loader, null);
     }
 
     /**

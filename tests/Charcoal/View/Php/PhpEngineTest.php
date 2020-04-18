@@ -22,13 +22,8 @@ class PhpEngineTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $loader = new PhpLoader([
-            'base_path' => __DIR__,
-            'paths'     => [ 'templates' ],
-        ]);
-        $this->obj = new PhpEngine([
-            'loader' => $loader,
-        ]);
+        $loader = new PhpLoader(__DIR__, [ 'templates' ]);
+        $this->obj = new PhpEngine($loader);
     }
 
     /**

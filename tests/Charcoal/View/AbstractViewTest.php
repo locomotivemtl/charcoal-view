@@ -28,21 +28,11 @@ class AbstractViewTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $loader = new MustacheLoader([
-            'base_path' => __DIR__,
-            'paths'     => [ 'Mustache/templates' ],
-        ]);
+        $loader = new MustacheLoader(__DIR__, [ 'Mustache/templates' ]);
 
         $assets = new AssetsHelpers();
-        $engine = new MustacheEngine([
-            'loader'  => $loader,
-            'helpers' => $assets->toArray(),
-        ]);
-        $this->obj = $this->getMockForAbstractClass(AbstractView::class, [
-            [
-                'engine' => $engine,
-            ],
-        ]);
+        $engine = new MustacheEngine($loader, null, $assets->toArray());
+        $this->obj = $this->getMockForAbstractClass(AbstractView::class, [$engine]);
     }
 
     /**

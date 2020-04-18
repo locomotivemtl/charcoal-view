@@ -21,10 +21,7 @@ class MustacheLoaderTest extends AbstractTestCase
      */
     public function setUp()
     {
-        $this->obj = new MustacheLoader([
-            'base_path' => __DIR__,
-            'paths'     => [ 'templates' ],
-        ]);
+        $this->obj = new MustacheLoader(__DIR__, [ 'templates' ]);
     }
 
     /**

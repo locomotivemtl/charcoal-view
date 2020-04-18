@@ -25,12 +25,12 @@ abstract class AbstractView implements ViewInterface
     /**
      * Build the object with an array of dependencies.
      *
-     * @param array $data View class dependencies.
+     * @param EngineInterface $engine View class dependencies.
      * @throws InvalidArgumentException If required parameters are missing.
      */
-    public function __construct(array $data)
+    public function __construct(EngineInterface $engine)
     {
-        $this->setEngine($data['engine']);
+        $this->setEngine($engine);
     }
 
     /**
